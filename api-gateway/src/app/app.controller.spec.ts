@@ -18,4 +18,14 @@ describe('AppController', () => {
       expect(appController.getData()).toEqual({ message: 'Hello API' });
     });
   });
+
+  describe('ready', () => {
+    it('should include uptime', () => {
+      const appController = app.get<AppController>(AppController);
+      const result = appController.ready();
+      expect(result.status).toBe('ready');
+      expect(result.service).toBe('api-gateway');
+      expect(typeof result.uptime).toBe('number');
+    });
+  });
 });

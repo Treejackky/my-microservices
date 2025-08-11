@@ -25,7 +25,8 @@ export class AppController {
     return {
       status: 'ready',
       service: 'api-gateway',
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
+      uptime: process.uptime()
     };
   }
 }
