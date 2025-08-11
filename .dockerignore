@@ -1,0 +1,39 @@
+# Dependencies and build artifacts
+node_modules
+**/node_modules
+dist
+**/dist
+build
+**/build
+.next
+out
+
+# Version control and docker files
+.git
+.gitignore
+.dockerignore
+
+# Tests
+__tests__
+test
+tests
+**/__tests__
+**/test
+**/tests
+*.spec.*
+*.test.*
+
+# Local environment and config
+.env
+.env.*
+*.local
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDE and misc
+.vscode
+.idea
+.DS_Store
+coverage
