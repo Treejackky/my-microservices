@@ -97,10 +97,14 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # ✅ เพิ่มตรงนี้ให้ทุก step ใช้ได้
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }} # ✅ เพิ่ม token ให้ checkout เผื่อจำเป็น
 
       - name: Setup kubectl
         uses: azure/setup-kubectl@v3
@@ -119,11 +123,9 @@ jobs:
 
       - name: Deploy to Kubernetes
         run: |
-          # Update image tags in values.yaml
           sed -i "s|your-registry/my-microservices|${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}|g" helm/values.yaml
           sed -i "s|tag: \"latest\"|tag: \"${{ github.sha }}\"|g" helm/values.yaml
           
-          # Deploy using Helm
           helm upgrade --install my-microservices ./helm \
             --namespace production \
             --create-namespace \
