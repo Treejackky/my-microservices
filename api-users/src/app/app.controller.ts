@@ -9,23 +9,4 @@ export class AppController {
   getData() {
     return this.appService.getData();
   }
-
-  @Get('health')
-  health() {
-    return {
-      status: 'ok',
-      service: 'api-users',
-      timestamp: new Date().toISOString(),
-      uptime: process.uptime()
-    };
-  }
-
-  @Get('ready')
-  ready() {
-    return {
-      status: 'ready',
-      service: 'api-users',
-      timestamp: new Date().toISOString()
-    };
-  }
 }
