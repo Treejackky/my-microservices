@@ -27,7 +27,16 @@ fi
 
 # Check if Helm is installed
 if ! command -v helm &> /dev/null; then
-    echo -e "${RED}❌ Helm is not installed. Please install Helm first.${NC}"
+    echo -e "${YELLOW}🔧 Helm is not installed. Installing Helm...${NC}"
+    HELM_VERSION=${HELM_VERSION:-"v3.9.0"}
+    curl -fsSL "https://get.helm.sh/helm-${HELM_VERSION}-linux-amd64.tar.gz" -o helm.tar.gz
+    tar -xzf helm.tar.gz
+    mv linux-amd64/helm /usr/local/bin/helm
+    rm -rf linux-amd64 helm.tar.gz
+fi
+
+if ! command -v helm &> /dev/null; then
+    echo -e "${RED}❌ Helm installation failed. Please install Helm manually.${NC}"
     exit 1
 fi
 
