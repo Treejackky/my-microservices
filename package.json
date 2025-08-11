@@ -6,7 +6,7 @@
     "nx": "nx",
     "build": "nx build",
     "test": "nx run-many --target=test --all --output-style=stream",
-    "lint": "nx lint"
+    "lint": "nx run-many --target=lint --all --output-style=stream"
   },
   "private": true,
   "devDependencies": {
