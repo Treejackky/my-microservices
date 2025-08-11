@@ -1,0 +1,17 @@
+FROM node:20-alpine AS build
+WORKDIR /app
+COPY . .
+RUN npm ci
+RUN npx nx build web-portal
+
+FROM node:20-alpine
+WORKDIR /srv
+ENV NODE_ENV=production
+COPY --from=build /app/dist/apps/web-portal/.next ./dist/.next
+COPY --from=build /app/dist/apps/web-portal/public ./dist/public
+COPY --from=build /app/dist/apps/web-portal/package.json ./dist/
+COPY package.json package-lock.json ./
+RUN npm ci --omit=dev
+WORKDIR /srv/dist
+EXPOSE 3000
+CMD ["npx", "next", "start"]
