@@ -1,0 +1,103 @@
+# Staging values for My Microservices
+replicaCount:
+  apiGateway: 2
+  apiUsers: 2
+  webPortal: 2
+  rabbitmq: 1
+
+image:
+  repository: your-staging-registry/my-microservices
+  tag: "staging"
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+
+ingress:
+  enabled: true
+  className: "nginx"
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: "letsencrypt-staging"
+  hosts:
+    - host: api-gateway-staging.your-domain.com
+      paths:
+        - path: /
+          pathType: Prefix
+    - host: api-users-staging.your-domain.com
+      paths:
+        - path: /
+          pathType: Prefix
+    - host: web-portal-staging.your-domain.com
+      paths:
+        - path: /
+          pathType: Prefix
+  tls:
+    - secretName: my-microservices-staging-tls
+      hosts:
+        - api-gateway-staging.your-domain.com
+        - api-users-staging.your-domain.com
+        - web-portal-staging.your-domain.com
+
+resources:
+  apiGateway:
+    limits:
+      cpu: 500m
+      memory: 512Mi
+    requests:
+      cpu: 250m
+      memory: 256Mi
+  apiUsers:
+    limits:
+      cpu: 500m
+      memory: 512Mi
+    requests:
+      cpu: 250m
+      memory: 256Mi
+  webPortal:
+    limits:
+      cpu: 500m
+      memory: 512Mi
+    requests:
+      cpu: 250m
+      memory: 256Mi
+  rabbitmq:
+    limits:
+      cpu: 1000m
+      memory: 1Gi
+    requests:
+      cpu: 500m
+      memory: 512Mi
+
+autoscaling:
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 80
+  targetMemoryUtilizationPercentage: 80
+
+env:
+  apiGateway:
+    NODE_ENV: staging
+    PORT: "3000"
+    RABBITMQ_URL: amqp://admin:password@rabbitmq:5672
+    LOG_LEVEL: debug
+  apiUsers:
+    NODE_ENV: staging
+    PORT: "3001"
+    RABBITMQ_URL: amqp://admin:password@rabbitmq:5672
+    LOG_LEVEL: debug
+  webPortal:
+    NODE_ENV: staging
+    NEXT_PUBLIC_API_GATEWAY_URL: https://api-gateway-staging.your-domain.com
+    NEXT_PUBLIC_API_USERS_URL: https://api-users-staging.your-domain.com
+  rabbitmq:
+    RABBITMQ_DEFAULT_USER: admin
+    RABBITMQ_DEFAULT_PASS: password
+
+persistence:
+  rabbitmq:
+    enabled: true
+    storageClass: ""
+    accessMode: ReadWriteOnce
+    size: 10Gi

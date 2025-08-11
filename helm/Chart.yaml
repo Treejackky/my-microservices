@@ -1,0 +1,16 @@
+apiVersion: v2
+name: my-microservices
+description: A Helm chart for My Microservices
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
+keywords:
+  - microservices
+  - nestjs
+  - nextjs
+home: https://github.com/your-org/my-microservices
+sources:
+  - https://github.com/your-org/my-microservices
+maintainers:
+  - name: Your Name
+    email: your.email@example.com

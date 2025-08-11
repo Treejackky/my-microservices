@@ -1,0 +1,131 @@
+# Production values for My Microservices
+replicaCount:
+  apiGateway: 3
+  apiUsers: 3
+  webPortal: 3
+  rabbitmq: 1
+
+image:
+  repository: your-production-registry/my-microservices
+  tag: "latest"
+  pullPolicy: Always
+
+imagePullSecrets:
+  - name: registry-secret
+
+service:
+  type: ClusterIP
+
+ingress:
+  enabled: true
+  className: "nginx"
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+  hosts:
+    - host: api-gateway.your-domain.com
+      paths:
+        - path: /
+          pathType: Prefix
+    - host: api-users.your-domain.com
+      paths:
+        - path: /
+          pathType: Prefix
+    - host: web-portal.your-domain.com
+      paths:
+        - path: /
+          pathType: Prefix
+  tls:
+    - secretName: my-microservices-tls
+      hosts:
+        - api-gateway.your-domain.com
+        - api-users.your-domain.com
+        - web-portal.your-domain.com
+
+resources:
+  apiGateway:
+    limits:
+      cpu: 1000m
+      memory: 1Gi
+    requests:
+      cpu: 500m
+      memory: 512Mi
+  apiUsers:
+    limits:
+      cpu: 1000m
+      memory: 1Gi
+    requests:
+      cpu: 500m
+      memory: 512Mi
+  webPortal:
+    limits:
+      cpu: 1000m
+      memory: 1Gi
+    requests:
+      cpu: 500m
+      memory: 512Mi
+  rabbitmq:
+    limits:
+      cpu: 2000m
+      memory: 2Gi
+    requests:
+      cpu: 1000m
+      memory: 1Gi
+
+autoscaling:
+  enabled: true
+  minReplicas: 3
+  maxReplicas: 20
+  targetCPUUtilizationPercentage: 70
+  targetMemoryUtilizationPercentage: 80
+
+env:
+  apiGateway:
+    NODE_ENV: production
+    PORT: "3000"
+    RABBITMQ_URL: amqp://admin:${RABBITMQ_PASSWORD}@rabbitmq:5672
+    LOG_LEVEL: info
+  apiUsers:
+    NODE_ENV: production
+    PORT: "3001"
+    RABBITMQ_URL: amqp://admin:${RABBITMQ_PASSWORD}@rabbitmq:5672
+    LOG_LEVEL: info
+  webPortal:
+    NODE_ENV: production
+    NEXT_PUBLIC_API_GATEWAY_URL: https://api-gateway.your-domain.com
+    NEXT_PUBLIC_API_USERS_URL: https://api-users.your-domain.com
+  rabbitmq:
+    RABBITMQ_DEFAULT_USER: admin
+    RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD}
+
+persistence:
+  rabbitmq:
+    enabled: true
+    storageClass: "fast-ssd"
+    accessMode: ReadWriteOnce
+    size: 50Gi
+
+# Security settings
+securityContext:
+  runAsNonRoot: true
+  runAsUser: 1000
+  fsGroup: 1000
+
+podSecurityContext:
+  runAsNonRoot: true
+  runAsUser: 1000
+  fsGroup: 1000
+
+# Network policies
+networkPolicy:
+  enabled: true
+
+# Monitoring
+monitoring:
+  enabled: true
+  serviceMonitor:
+    enabled: true
+  prometheusRule:
+    enabled: true

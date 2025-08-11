@@ -1,0 +1,137 @@
+# Default values for my-microservices
+replicaCount:
+  apiGateway: 2
+  apiUsers: 2
+  webPortal: 2
+  rabbitmq: 1
+
+image:
+  repository: your-registry/my-microservices
+  tag: "latest"
+  pullPolicy: IfNotPresent
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  create: true
+  annotations: {}
+  name: ""
+
+podAnnotations: {}
+
+podSecurityContext: {}
+
+securityContext: {}
+
+service:
+  type: ClusterIP
+  apiGateway:
+    port: 3000
+    targetPort: 3000
+  apiUsers:
+    port: 3001
+    targetPort: 3001
+  webPortal:
+    port: 3000
+    targetPort: 3000
+  rabbitmq:
+    port: 5672
+    targetPort: 5672
+    management:
+      port: 15672
+      targetPort: 15672
+
+ingress:
+  enabled: true
+  className: "nginx"
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+  hosts:
+    - host: api-gateway.your-domain.com
+      paths:
+        - path: /
+          pathType: Prefix
+    - host: api-users.your-domain.com
+      paths:
+        - path: /
+          pathType: Prefix
+    - host: web-portal.your-domain.com
+      paths:
+        - path: /
+          pathType: Prefix
+  tls:
+    - secretName: my-microservices-tls
+      hosts:
+        - api-gateway.your-domain.com
+        - api-users.your-domain.com
+        - web-portal.your-domain.com
+
+resources:
+  apiGateway:
+    limits:
+      cpu: 500m
+      memory: 512Mi
+    requests:
+      cpu: 250m
+      memory: 256Mi
+  apiUsers:
+    limits:
+      cpu: 500m
+      memory: 512Mi
+    requests:
+      cpu: 250m
+      memory: 256Mi
+  webPortal:
+    limits:
+      cpu: 500m
+      memory: 512Mi
+    requests:
+      cpu: 250m
+      memory: 256Mi
+  rabbitmq:
+    limits:
+      cpu: 1000m
+      memory: 1Gi
+    requests:
+      cpu: 500m
+      memory: 512Mi
+
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 80
+  targetMemoryUtilizationPercentage: 80
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+env:
+  apiGateway:
+    NODE_ENV: production
+    PORT: "3000"
+    RABBITMQ_URL: amqp://admin:password@rabbitmq:5672
+  apiUsers:
+    NODE_ENV: production
+    PORT: "3001"
+    RABBITMQ_URL: amqp://admin:password@rabbitmq:5672
+  webPortal:
+    NODE_ENV: production
+    NEXT_PUBLIC_API_GATEWAY_URL: http://api-gateway:3000
+    NEXT_PUBLIC_API_USERS_URL: http://api-users:3001
+  rabbitmq:
+    RABBITMQ_DEFAULT_USER: admin
+    RABBITMQ_DEFAULT_PASS: password
+
+persistence:
+  rabbitmq:
+    enabled: true
+    storageClass: ""
+    accessMode: ReadWriteOnce
+    size: 10Gi

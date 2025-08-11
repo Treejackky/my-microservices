@@ -56,80 +56,96 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": "buildspec.yml",
-        "hash": "2111364686490634776"
+        "file": "helm/templates/web-portal-deployment.yaml",
+        "hash": "16278184434221626246"
       },
       {
-        "file": ".gitignore",
-        "hash": "8334041212474652485"
+        "file": "helm/Chart.yaml",
+        "hash": "15850534554690463687"
       },
       {
-        "file": ".editorconfig",
-        "hash": "5443105041930014821"
+        "file": "helm/templates/rabbitmq-deployment.yaml",
+        "hash": "7869666378652978451"
       },
       {
-        "file": "nx.json",
-        "hash": "9653415735672187834"
+        "file": "helm/templates/serviceaccount.yaml",
+        "hash": "8409003493827410693"
       },
       {
-        "file": "k8s/api-users-deployment.yaml",
-        "hash": "17626297830689101121"
-      },
-      {
-        "file": "LICENSE",
-        "hash": "1536856188937976974"
-      },
-      {
-        "file": "k8s/web-portal-deployment.yaml",
-        "hash": "15976530108819862036"
-      },
-      {
-        "file": "package.json",
-        "hash": "15926190753063523134"
-      },
-      {
-        "file": "tsconfig.base.json",
-        "hash": "4773110175643235057"
-      },
-      {
-        "file": ".prettierignore",
-        "hash": "14688272390704683536"
+        "file": "scripts/cleanup.sh",
+        "hash": "3060067335195060133"
       },
       {
         "file": "jest.preset.js",
         "hash": "9430166341120122740"
       },
       {
-        "file": "Dockerfile.web-portal",
-        "hash": "13640249475887947130"
+        "file": ".prettierrc",
+        "hash": "16267754514737964994"
+      },
+      {
+        "file": "tsconfig.base.json",
+        "hash": "4773110175643235057"
       },
       {
         "file": "package-lock.json",
         "hash": "9848703040110830071"
       },
       {
-        "file": "eslint.config.mjs",
-        "hash": "10770449096712831357"
+        "file": "helm/templates/pvc.yaml",
+        "hash": "9622765436275522052"
+      },
+      {
+        "file": "helm/templates/hpa.yaml",
+        "hash": "5881921727130303317"
+      },
+      {
+        "file": "helm/templates/_helpers.tpl",
+        "hash": "7418656468226178636"
       },
       {
         "file": ".gitattributes",
         "hash": "13194702717607086212"
       },
       {
-        "file": "Dockerfile",
-        "hash": "13243029859964314215"
+        "file": "k8s/web-portal-deployment.yaml",
+        "hash": "15976530108819862036"
       },
       {
-        "file": "k8s/rabbitmq-deployment.yaml",
-        "hash": "6866528334676289685"
+        "file": "helm/values-staging.yaml",
+        "hash": "6564634167255709941"
+      },
+      {
+        "file": "README.md",
+        "hash": "13275300192392612665"
+      },
+      {
+        "file": "Dockerfile.web-portal",
+        "hash": "13640249475887947130"
+      },
+      {
+        "file": "README-KUBERNETES.md",
+        "hash": "14749682911472139906"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "14688272390704683536"
+      },
+      {
+        "file": "helm/templates/services.yaml",
+        "hash": "7080533670337268330"
       },
       {
         "file": ".vscode/extensions.json",
         "hash": "108759356477840841"
       },
       {
-        "file": "docker-compose.yml",
-        "hash": "7448295274456354106"
+        "file": "helm/values.yaml",
+        "hash": "2240051138552609206"
+      },
+      {
+        "file": "Dockerfile.api-gateway",
+        "hash": "11046542388463955062"
       },
       {
         "file": "env.example",
@@ -140,20 +156,84 @@
         "hash": "6870352021923392442"
       },
       {
-        "file": ".prettierrc",
-        "hash": "16267754514737964994"
+        "file": "Dockerfile",
+        "hash": "13243029859964314215"
       },
       {
-        "file": "Dockerfile.api-gateway",
-        "hash": "11046542388463955062"
+        "file": "helm/templates/api-gateway-deployment.yaml",
+        "hash": "13117197503888095587"
       },
       {
-        "file": "README.md",
-        "hash": "13275300192392612665"
+        "file": "buildspec.yml",
+        "hash": "2111364686490634776"
+      },
+      {
+        "file": ".github/workflows/build-and-deploy.yml",
+        "hash": "14347673768452759617"
+      },
+      {
+        "file": "LICENSE",
+        "hash": "1536856188937976974"
+      },
+      {
+        "file": "docker-compose.yml",
+        "hash": "7448295274456354106"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "8334041212474652485"
+      },
+      {
+        "file": "package.json",
+        "hash": "15926190753063523134"
+      },
+      {
+        "file": "scripts/build.sh",
+        "hash": "2063912724110946231"
       },
       {
         "file": "k8s/api-gateway-deployment.yaml",
         "hash": "12809824533172623419"
+      },
+      {
+        "file": "k8s/api-users-deployment.yaml",
+        "hash": "17626297830689101121"
+      },
+      {
+        "file": "helm/templates/ingress.yaml",
+        "hash": "8607003140802079458"
+      },
+      {
+        "file": "nx.json",
+        "hash": "9653415735672187834"
+      },
+      {
+        "file": ".editorconfig",
+        "hash": "5443105041930014821"
+      },
+      {
+        "file": "eslint.config.mjs",
+        "hash": "10770449096712831357"
+      },
+      {
+        "file": "k8s/rabbitmq-deployment.yaml",
+        "hash": "6866528334676289685"
+      },
+      {
+        "file": "scripts/deploy.sh",
+        "hash": "16410175508477100069"
+      },
+      {
+        "file": "helm/templates/api-users-deployment.yaml",
+        "hash": "10611915882994510103"
+      },
+      {
+        "file": "Makefile",
+        "hash": "6227167059850592041"
+      },
+      {
+        "file": "helm/values-production.yaml",
+        "hash": "2761273049421750438"
       }
     ],
     "projectFileMap": {
@@ -364,7 +444,7 @@
         },
         {
           "file": "api-users/src/app/app.controller.ts",
-          "hash": "15276891910009544695",
+          "hash": "2173739430987238837",
           "deps": [
             "npm:@nestjs/common"
           ]
@@ -533,6 +613,13 @@
           ]
         },
         {
+          "file": "web-portal/src/app/api/health/route.ts",
+          "hash": "9728908419739084444",
+          "deps": [
+            "npm:next"
+          ]
+        },
+        {
           "file": "web-portal/src/app/api/hello/route.ts",
           "hash": "495073956729887886"
         },
@@ -583,7 +670,7 @@
         },
         {
           "file": "api-gateway/src/app/app.controller.ts",
-          "hash": "15276891910009544695",
+          "hash": "6970940550625851203",
           "deps": [
             "npm:@nestjs/common"
           ]
