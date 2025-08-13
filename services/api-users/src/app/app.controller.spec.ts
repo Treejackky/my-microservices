@@ -18,4 +18,14 @@ describe('AppController', () => {
       expect(appController.getData()).toEqual({ message: 'Hello API' });
     });
   });
+
+  describe('getUsers', () => {
+    it('should return an array of users', () => {
+      const appController = app.get<AppController>(AppController);
+      expect(appController.getUsers()).toEqual([
+        { id: 1, name: 'Alice' },
+        { id: 2, name: 'Bob' },
+      ]);
+    });
+  });
 });
