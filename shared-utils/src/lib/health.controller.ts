@@ -1,5 +1,5 @@
 import { Controller, Get, Inject } from '@nestjs/common';
-import { HEALTH_SERVICE_NAME } from './health.module';
+import { HEALTH_SERVICE_NAME } from './health.constants';
 
 @Controller()
 export class HealthController {

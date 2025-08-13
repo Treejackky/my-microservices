@@ -1,7 +1,6 @@
 import { Module, DynamicModule } from '@nestjs/common';
 import { HealthController } from './health.controller';
-
-export const HEALTH_SERVICE_NAME = 'HEALTH_SERVICE_NAME';
+import { HEALTH_SERVICE_NAME } from './health.constants';
 
 @Module({})
 export class HealthModule {
