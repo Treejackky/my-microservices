@@ -1,0 +1,15 @@
+FROM node:20-alpine AS build
+WORKDIR /app
+COPY . .
+RUN npm ci
+RUN npm run nx build email-service
+
+FROM node:20-alpine
+WORKDIR /srv
+ENV NODE_ENV=production
+COPY --from=build /app/dist/email-service ./dist
+COPY --from=build /app/dist/email-service/package.json ./
+COPY --from=build /app/dist/email-service/package-lock.json ./
+RUN npm ci --omit=dev
+EXPOSE 3004
+CMD ["node", "dist/main.js"]
