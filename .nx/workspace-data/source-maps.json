@@ -1,993 +1,1609 @@
 {
-  "api-gateway": {
+  "services/api-gateway": {
     "root": [
-      "api-gateway/project.json",
+      "services/api-gateway/project.json",
       "nx/core/project-json"
     ],
     "projectType": [
-      "api-gateway/project.json",
+      "services/api-gateway/project.json",
       "nx/core/project-json"
     ],
     "targets": [
-      "api-gateway/webpack.config.js",
+      "services/api-gateway/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.build": [
-      "api-gateway/project.json",
+      "services/api-gateway/project.json",
       "nx/core/project-json"
     ],
     "targets.build.options": [
-      "api-gateway/project.json",
+      "services/api-gateway/project.json",
       "nx/core/project-json"
     ],
     "targets.build.cache": [
-      "api-gateway/webpack.config.js",
+      "services/api-gateway/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.build.dependsOn": [
-      "api-gateway/webpack.config.js",
+      "services/api-gateway/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.build.inputs": [
-      "api-gateway/webpack.config.js",
+      "services/api-gateway/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.build.outputs": [
-      "api-gateway/webpack.config.js",
+      "services/api-gateway/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.build.metadata": [
-      "api-gateway/webpack.config.js",
+      "services/api-gateway/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.build.executor": [
-      "api-gateway/project.json",
+      "services/api-gateway/project.json",
       "nx/core/project-json"
     ],
     "targets.build.options.cwd": [
-      "api-gateway/webpack.config.js",
+      "services/api-gateway/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.build.options.args": [
-      "api-gateway/project.json",
+      "services/api-gateway/project.json",
       "nx/core/project-json"
     ],
     "targets.build.options.command": [
-      "api-gateway/project.json",
+      "services/api-gateway/project.json",
       "nx/core/project-json"
     ],
     "targets.build.metadata.technologies": [
-      "api-gateway/webpack.config.js",
+      "services/api-gateway/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.build.metadata.technologies.0": [
-      "api-gateway/webpack.config.js",
+      "services/api-gateway/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.build.metadata.description": [
-      "api-gateway/webpack.config.js",
+      "services/api-gateway/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.build.metadata.help": [
-      "api-gateway/webpack.config.js",
+      "services/api-gateway/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.build.metadata.help.command": [
-      "api-gateway/webpack.config.js",
+      "services/api-gateway/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.build.metadata.help.example": [
-      "api-gateway/webpack.config.js",
+      "services/api-gateway/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.preview": [
-      "api-gateway/webpack.config.js",
+      "services/api-gateway/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.preview.continuous": [
-      "api-gateway/webpack.config.js",
+      "services/api-gateway/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.preview.options": [
-      "api-gateway/webpack.config.js",
+      "services/api-gateway/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.preview.metadata": [
-      "api-gateway/webpack.config.js",
+      "services/api-gateway/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.preview.executor": [
-      "api-gateway/webpack.config.js",
+      "services/api-gateway/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.preview.options.cwd": [
-      "api-gateway/webpack.config.js",
+      "services/api-gateway/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.preview.options.args": [
-      "api-gateway/webpack.config.js",
+      "services/api-gateway/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.preview.options.command": [
-      "api-gateway/webpack.config.js",
+      "services/api-gateway/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.preview.metadata.technologies": [
-      "api-gateway/webpack.config.js",
+      "services/api-gateway/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.preview.metadata.technologies.0": [
-      "api-gateway/webpack.config.js",
+      "services/api-gateway/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.preview.metadata.description": [
-      "api-gateway/webpack.config.js",
+      "services/api-gateway/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.preview.metadata.help": [
-      "api-gateway/webpack.config.js",
+      "services/api-gateway/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.preview.metadata.help.command": [
-      "api-gateway/webpack.config.js",
+      "services/api-gateway/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.preview.metadata.help.example": [
-      "api-gateway/webpack.config.js",
+      "services/api-gateway/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.build-deps": [
-      "api-gateway/webpack.config.js",
+      "services/api-gateway/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.build-deps.dependsOn": [
-      "api-gateway/webpack.config.js",
+      "services/api-gateway/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.watch-deps": [
-      "api-gateway/webpack.config.js",
+      "services/api-gateway/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.watch-deps.continuous": [
-      "api-gateway/webpack.config.js",
+      "services/api-gateway/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.watch-deps.dependsOn": [
-      "api-gateway/webpack.config.js",
+      "services/api-gateway/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.watch-deps.executor": [
-      "api-gateway/webpack.config.js",
+      "services/api-gateway/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.watch-deps.options": [
-      "api-gateway/webpack.config.js",
+      "services/api-gateway/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.watch-deps.options.command": [
-      "api-gateway/webpack.config.js",
+      "services/api-gateway/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.lint": [
-      "api-gateway/eslint.config.mjs",
+      "services/api-gateway/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.cache": [
-      "api-gateway/eslint.config.mjs",
+      "services/api-gateway/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.options": [
-      "api-gateway/eslint.config.mjs",
+      "services/api-gateway/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.inputs": [
-      "api-gateway/eslint.config.mjs",
+      "services/api-gateway/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.outputs": [
-      "api-gateway/eslint.config.mjs",
+      "services/api-gateway/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.metadata": [
-      "api-gateway/eslint.config.mjs",
+      "services/api-gateway/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.executor": [
-      "api-gateway/eslint.config.mjs",
+      "services/api-gateway/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.options.cwd": [
-      "api-gateway/eslint.config.mjs",
+      "services/api-gateway/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.options.command": [
-      "api-gateway/eslint.config.mjs",
+      "services/api-gateway/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.metadata.technologies": [
-      "api-gateway/eslint.config.mjs",
+      "services/api-gateway/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.metadata.technologies.0": [
-      "api-gateway/eslint.config.mjs",
+      "services/api-gateway/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.metadata.description": [
-      "api-gateway/eslint.config.mjs",
+      "services/api-gateway/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.metadata.help": [
-      "api-gateway/eslint.config.mjs",
+      "services/api-gateway/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.metadata.help.command": [
-      "api-gateway/eslint.config.mjs",
+      "services/api-gateway/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.metadata.help.example": [
-      "api-gateway/eslint.config.mjs",
+      "services/api-gateway/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.test": [
-      "api-gateway/project.json",
+      "services/api-gateway/project.json",
       "nx/core/project-json"
     ],
     "targets.test.options": [
-      "api-gateway/project.json",
+      "services/api-gateway/project.json",
       "nx/core/project-json"
     ],
     "targets.test.metadata": [
-      "api-gateway/jest.config.ts",
+      "services/api-gateway/jest.config.ts",
       "@nx/jest/plugin"
     ],
     "targets.test.cache": [
-      "api-gateway/jest.config.ts",
+      "services/api-gateway/jest.config.ts",
       "@nx/jest/plugin"
     ],
     "targets.test.inputs": [
-      "api-gateway/jest.config.ts",
+      "services/api-gateway/jest.config.ts",
       "@nx/jest/plugin"
     ],
     "targets.test.outputs": [
-      "api-gateway/jest.config.ts",
+      "services/api-gateway/jest.config.ts",
       "@nx/jest/plugin"
     ],
     "targets.test.executor": [
-      "api-gateway/jest.config.ts",
+      "services/api-gateway/jest.config.ts",
       "@nx/jest/plugin"
     ],
     "targets.test.options.cwd": [
-      "api-gateway/jest.config.ts",
+      "services/api-gateway/jest.config.ts",
       "@nx/jest/plugin"
     ],
     "targets.test.options.env": [
-      "api-gateway/jest.config.ts",
+      "services/api-gateway/jest.config.ts",
       "@nx/jest/plugin"
     ],
     "targets.test.options.command": [
-      "api-gateway/jest.config.ts",
+      "services/api-gateway/jest.config.ts",
       "@nx/jest/plugin"
     ],
     "targets.test.metadata.technologies": [
-      "api-gateway/jest.config.ts",
+      "services/api-gateway/jest.config.ts",
       "@nx/jest/plugin"
     ],
     "targets.test.metadata.technologies.0": [
-      "api-gateway/jest.config.ts",
+      "services/api-gateway/jest.config.ts",
       "@nx/jest/plugin"
     ],
     "targets.test.metadata.description": [
-      "api-gateway/jest.config.ts",
+      "services/api-gateway/jest.config.ts",
       "@nx/jest/plugin"
     ],
     "targets.test.metadata.help": [
-      "api-gateway/jest.config.ts",
+      "services/api-gateway/jest.config.ts",
       "@nx/jest/plugin"
     ],
     "targets.test.metadata.help.command": [
-      "api-gateway/jest.config.ts",
+      "services/api-gateway/jest.config.ts",
       "@nx/jest/plugin"
     ],
     "targets.test.metadata.help.example": [
-      "api-gateway/jest.config.ts",
+      "services/api-gateway/jest.config.ts",
       "@nx/jest/plugin"
     ],
     "name": [
-      "api-gateway/project.json",
+      "services/api-gateway/project.json",
       "nx/core/project-json"
     ],
     "$schema": [
-      "api-gateway/project.json",
+      "services/api-gateway/project.json",
       "nx/core/project-json"
     ],
     "sourceRoot": [
-      "api-gateway/project.json",
+      "services/api-gateway/project.json",
       "nx/core/project-json"
     ],
     "tags": [
-      "api-gateway/project.json",
+      "services/api-gateway/project.json",
       "nx/core/project-json"
     ],
     "targets.build.configurations": [
-      "api-gateway/project.json",
+      "services/api-gateway/project.json",
       "nx/core/project-json"
     ],
     "targets.build.configurations.development": [
-      "api-gateway/project.json",
+      "services/api-gateway/project.json",
       "nx/core/project-json"
     ],
     "targets.build.configurations.development.args": [
-      "api-gateway/project.json",
+      "services/api-gateway/project.json",
       "nx/core/project-json"
     ],
     "targets.serve": [
-      "api-gateway/project.json",
+      "services/api-gateway/project.json",
       "nx/core/project-json"
     ],
     "targets.serve.continuous": [
-      "api-gateway/project.json",
+      "services/api-gateway/project.json",
       "nx/core/project-json"
     ],
     "targets.serve.executor": [
-      "api-gateway/project.json",
+      "services/api-gateway/project.json",
       "nx/core/project-json"
     ],
     "targets.serve.defaultConfiguration": [
-      "api-gateway/project.json",
+      "services/api-gateway/project.json",
       "nx/core/project-json"
     ],
     "targets.serve.dependsOn": [
-      "api-gateway/project.json",
+      "services/api-gateway/project.json",
       "nx/core/project-json"
     ],
     "targets.serve.options": [
-      "api-gateway/project.json",
+      "services/api-gateway/project.json",
       "nx/core/project-json"
     ],
     "targets.serve.configurations": [
-      "api-gateway/project.json",
+      "services/api-gateway/project.json",
       "nx/core/project-json"
     ],
     "targets.serve.options.buildTarget": [
-      "api-gateway/project.json",
+      "services/api-gateway/project.json",
       "nx/core/project-json"
     ],
     "targets.serve.options.runBuildTargetDependencies": [
-      "api-gateway/project.json",
+      "services/api-gateway/project.json",
       "nx/core/project-json"
     ],
     "targets.serve.configurations.development": [
-      "api-gateway/project.json",
+      "services/api-gateway/project.json",
       "nx/core/project-json"
     ],
     "targets.serve.configurations.development.buildTarget": [
-      "api-gateway/project.json",
+      "services/api-gateway/project.json",
       "nx/core/project-json"
     ],
     "targets.serve.configurations.production": [
-      "api-gateway/project.json",
+      "services/api-gateway/project.json",
       "nx/core/project-json"
     ],
     "targets.serve.configurations.production.buildTarget": [
-      "api-gateway/project.json",
+      "services/api-gateway/project.json",
       "nx/core/project-json"
     ],
     "targets.test.options.passWithNoTests": [
-      "api-gateway/project.json",
+      "services/api-gateway/project.json",
       "nx/core/project-json"
     ]
   },
-  "api-users": {
+  "services/api-users": {
     "root": [
-      "api-users/project.json",
+      "services/api-users/project.json",
       "nx/core/project-json"
     ],
     "projectType": [
-      "api-users/project.json",
+      "services/api-users/project.json",
       "nx/core/project-json"
     ],
     "targets": [
-      "api-users/webpack.config.js",
+      "services/api-users/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.build": [
-      "api-users/project.json",
+      "services/api-users/project.json",
       "nx/core/project-json"
     ],
     "targets.build.options": [
-      "api-users/project.json",
+      "services/api-users/project.json",
       "nx/core/project-json"
     ],
     "targets.build.cache": [
-      "api-users/webpack.config.js",
+      "services/api-users/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.build.dependsOn": [
-      "api-users/webpack.config.js",
+      "services/api-users/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.build.inputs": [
-      "api-users/webpack.config.js",
+      "services/api-users/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.build.outputs": [
-      "api-users/webpack.config.js",
+      "services/api-users/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.build.metadata": [
-      "api-users/webpack.config.js",
+      "services/api-users/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.build.executor": [
-      "api-users/project.json",
+      "services/api-users/project.json",
       "nx/core/project-json"
     ],
     "targets.build.options.cwd": [
-      "api-users/webpack.config.js",
+      "services/api-users/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.build.options.args": [
-      "api-users/project.json",
+      "services/api-users/project.json",
       "nx/core/project-json"
     ],
     "targets.build.options.command": [
-      "api-users/project.json",
+      "services/api-users/project.json",
       "nx/core/project-json"
     ],
     "targets.build.metadata.technologies": [
-      "api-users/webpack.config.js",
+      "services/api-users/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.build.metadata.technologies.0": [
-      "api-users/webpack.config.js",
+      "services/api-users/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.build.metadata.description": [
-      "api-users/webpack.config.js",
+      "services/api-users/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.build.metadata.help": [
-      "api-users/webpack.config.js",
+      "services/api-users/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.build.metadata.help.command": [
-      "api-users/webpack.config.js",
+      "services/api-users/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.build.metadata.help.example": [
-      "api-users/webpack.config.js",
+      "services/api-users/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.preview": [
-      "api-users/webpack.config.js",
+      "services/api-users/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.preview.continuous": [
-      "api-users/webpack.config.js",
+      "services/api-users/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.preview.options": [
-      "api-users/webpack.config.js",
+      "services/api-users/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.preview.metadata": [
-      "api-users/webpack.config.js",
+      "services/api-users/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.preview.executor": [
-      "api-users/webpack.config.js",
+      "services/api-users/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.preview.options.cwd": [
-      "api-users/webpack.config.js",
+      "services/api-users/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.preview.options.args": [
-      "api-users/webpack.config.js",
+      "services/api-users/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.preview.options.command": [
-      "api-users/webpack.config.js",
+      "services/api-users/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.preview.metadata.technologies": [
-      "api-users/webpack.config.js",
+      "services/api-users/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.preview.metadata.technologies.0": [
-      "api-users/webpack.config.js",
+      "services/api-users/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.preview.metadata.description": [
-      "api-users/webpack.config.js",
+      "services/api-users/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.preview.metadata.help": [
-      "api-users/webpack.config.js",
+      "services/api-users/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.preview.metadata.help.command": [
-      "api-users/webpack.config.js",
+      "services/api-users/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.preview.metadata.help.example": [
-      "api-users/webpack.config.js",
+      "services/api-users/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.build-deps": [
-      "api-users/webpack.config.js",
+      "services/api-users/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.build-deps.dependsOn": [
-      "api-users/webpack.config.js",
+      "services/api-users/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.watch-deps": [
-      "api-users/webpack.config.js",
+      "services/api-users/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.watch-deps.continuous": [
-      "api-users/webpack.config.js",
+      "services/api-users/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.watch-deps.dependsOn": [
-      "api-users/webpack.config.js",
+      "services/api-users/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.watch-deps.executor": [
-      "api-users/webpack.config.js",
+      "services/api-users/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.watch-deps.options": [
-      "api-users/webpack.config.js",
+      "services/api-users/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.watch-deps.options.command": [
-      "api-users/webpack.config.js",
+      "services/api-users/webpack.config.js",
       "@nx/webpack/plugin"
     ],
     "targets.lint": [
-      "api-users/eslint.config.mjs",
+      "services/api-users/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.cache": [
-      "api-users/eslint.config.mjs",
+      "services/api-users/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.options": [
-      "api-users/eslint.config.mjs",
+      "services/api-users/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.inputs": [
-      "api-users/eslint.config.mjs",
+      "services/api-users/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.outputs": [
-      "api-users/eslint.config.mjs",
+      "services/api-users/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.metadata": [
-      "api-users/eslint.config.mjs",
+      "services/api-users/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.executor": [
-      "api-users/eslint.config.mjs",
+      "services/api-users/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.options.cwd": [
-      "api-users/eslint.config.mjs",
+      "services/api-users/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.options.command": [
-      "api-users/eslint.config.mjs",
+      "services/api-users/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.metadata.technologies": [
-      "api-users/eslint.config.mjs",
+      "services/api-users/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.metadata.technologies.0": [
-      "api-users/eslint.config.mjs",
+      "services/api-users/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.metadata.description": [
-      "api-users/eslint.config.mjs",
+      "services/api-users/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.metadata.help": [
-      "api-users/eslint.config.mjs",
+      "services/api-users/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.metadata.help.command": [
-      "api-users/eslint.config.mjs",
+      "services/api-users/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.metadata.help.example": [
-      "api-users/eslint.config.mjs",
+      "services/api-users/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.test": [
-      "api-users/project.json",
+      "services/api-users/project.json",
       "nx/core/project-json"
     ],
     "targets.test.options": [
-      "api-users/project.json",
+      "services/api-users/project.json",
       "nx/core/project-json"
     ],
     "targets.test.metadata": [
-      "api-users/jest.config.ts",
+      "services/api-users/jest.config.ts",
       "@nx/jest/plugin"
     ],
     "targets.test.cache": [
-      "api-users/jest.config.ts",
+      "services/api-users/jest.config.ts",
       "@nx/jest/plugin"
     ],
     "targets.test.inputs": [
-      "api-users/jest.config.ts",
+      "services/api-users/jest.config.ts",
       "@nx/jest/plugin"
     ],
     "targets.test.outputs": [
-      "api-users/jest.config.ts",
+      "services/api-users/jest.config.ts",
       "@nx/jest/plugin"
     ],
     "targets.test.executor": [
-      "api-users/jest.config.ts",
+      "services/api-users/jest.config.ts",
       "@nx/jest/plugin"
     ],
     "targets.test.options.cwd": [
-      "api-users/jest.config.ts",
+      "services/api-users/jest.config.ts",
       "@nx/jest/plugin"
     ],
     "targets.test.options.env": [
-      "api-users/jest.config.ts",
+      "services/api-users/jest.config.ts",
       "@nx/jest/plugin"
     ],
     "targets.test.options.command": [
-      "api-users/jest.config.ts",
+      "services/api-users/jest.config.ts",
       "@nx/jest/plugin"
     ],
     "targets.test.metadata.technologies": [
-      "api-users/jest.config.ts",
+      "services/api-users/jest.config.ts",
       "@nx/jest/plugin"
     ],
     "targets.test.metadata.technologies.0": [
-      "api-users/jest.config.ts",
+      "services/api-users/jest.config.ts",
       "@nx/jest/plugin"
     ],
     "targets.test.metadata.description": [
-      "api-users/jest.config.ts",
+      "services/api-users/jest.config.ts",
       "@nx/jest/plugin"
     ],
     "targets.test.metadata.help": [
-      "api-users/jest.config.ts",
+      "services/api-users/jest.config.ts",
       "@nx/jest/plugin"
     ],
     "targets.test.metadata.help.command": [
-      "api-users/jest.config.ts",
+      "services/api-users/jest.config.ts",
       "@nx/jest/plugin"
     ],
     "targets.test.metadata.help.example": [
-      "api-users/jest.config.ts",
+      "services/api-users/jest.config.ts",
       "@nx/jest/plugin"
     ],
     "name": [
-      "api-users/project.json",
+      "services/api-users/project.json",
       "nx/core/project-json"
     ],
     "$schema": [
-      "api-users/project.json",
+      "services/api-users/project.json",
       "nx/core/project-json"
     ],
     "sourceRoot": [
-      "api-users/project.json",
+      "services/api-users/project.json",
       "nx/core/project-json"
     ],
     "tags": [
-      "api-users/project.json",
+      "services/api-users/project.json",
       "nx/core/project-json"
     ],
     "targets.build.configurations": [
-      "api-users/project.json",
+      "services/api-users/project.json",
       "nx/core/project-json"
     ],
     "targets.build.configurations.development": [
-      "api-users/project.json",
+      "services/api-users/project.json",
       "nx/core/project-json"
     ],
     "targets.build.configurations.development.args": [
-      "api-users/project.json",
+      "services/api-users/project.json",
       "nx/core/project-json"
     ],
     "targets.serve": [
-      "api-users/project.json",
+      "services/api-users/project.json",
       "nx/core/project-json"
     ],
     "targets.serve.continuous": [
-      "api-users/project.json",
+      "services/api-users/project.json",
       "nx/core/project-json"
     ],
     "targets.serve.executor": [
-      "api-users/project.json",
+      "services/api-users/project.json",
       "nx/core/project-json"
     ],
     "targets.serve.defaultConfiguration": [
-      "api-users/project.json",
+      "services/api-users/project.json",
       "nx/core/project-json"
     ],
     "targets.serve.dependsOn": [
-      "api-users/project.json",
+      "services/api-users/project.json",
       "nx/core/project-json"
     ],
     "targets.serve.options": [
-      "api-users/project.json",
+      "services/api-users/project.json",
       "nx/core/project-json"
     ],
     "targets.serve.configurations": [
-      "api-users/project.json",
+      "services/api-users/project.json",
       "nx/core/project-json"
     ],
     "targets.serve.options.buildTarget": [
-      "api-users/project.json",
+      "services/api-users/project.json",
       "nx/core/project-json"
     ],
     "targets.serve.options.runBuildTargetDependencies": [
-      "api-users/project.json",
+      "services/api-users/project.json",
       "nx/core/project-json"
     ],
     "targets.serve.configurations.development": [
-      "api-users/project.json",
+      "services/api-users/project.json",
       "nx/core/project-json"
     ],
     "targets.serve.configurations.development.buildTarget": [
-      "api-users/project.json",
+      "services/api-users/project.json",
       "nx/core/project-json"
     ],
     "targets.serve.configurations.production": [
-      "api-users/project.json",
+      "services/api-users/project.json",
       "nx/core/project-json"
     ],
     "targets.serve.configurations.production.buildTarget": [
-      "api-users/project.json",
+      "services/api-users/project.json",
       "nx/core/project-json"
     ],
     "targets.test.options.passWithNoTests": [
-      "api-users/project.json",
+      "services/api-users/project.json",
       "nx/core/project-json"
     ]
   },
-  "api-gateway-e2e": {
+  "e2e/api-gateway-e2e": {
     "root": [
-      "api-gateway-e2e/project.json",
+      "e2e/api-gateway-e2e/project.json",
       "nx/core/project-json"
     ],
     "targets": [
-      "api-gateway-e2e/eslint.config.mjs",
+      "e2e/api-gateway-e2e/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint": [
-      "api-gateway-e2e/eslint.config.mjs",
+      "e2e/api-gateway-e2e/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.cache": [
-      "api-gateway-e2e/eslint.config.mjs",
+      "e2e/api-gateway-e2e/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.options": [
-      "api-gateway-e2e/eslint.config.mjs",
+      "e2e/api-gateway-e2e/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.inputs": [
-      "api-gateway-e2e/eslint.config.mjs",
+      "e2e/api-gateway-e2e/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.outputs": [
-      "api-gateway-e2e/eslint.config.mjs",
+      "e2e/api-gateway-e2e/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.metadata": [
-      "api-gateway-e2e/eslint.config.mjs",
+      "e2e/api-gateway-e2e/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.executor": [
-      "api-gateway-e2e/eslint.config.mjs",
+      "e2e/api-gateway-e2e/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.options.cwd": [
-      "api-gateway-e2e/eslint.config.mjs",
+      "e2e/api-gateway-e2e/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.options.command": [
-      "api-gateway-e2e/eslint.config.mjs",
+      "e2e/api-gateway-e2e/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.metadata.technologies": [
-      "api-gateway-e2e/eslint.config.mjs",
+      "e2e/api-gateway-e2e/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.metadata.technologies.0": [
-      "api-gateway-e2e/eslint.config.mjs",
+      "e2e/api-gateway-e2e/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.metadata.description": [
-      "api-gateway-e2e/eslint.config.mjs",
+      "e2e/api-gateway-e2e/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.metadata.help": [
-      "api-gateway-e2e/eslint.config.mjs",
+      "e2e/api-gateway-e2e/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.metadata.help.command": [
-      "api-gateway-e2e/eslint.config.mjs",
+      "e2e/api-gateway-e2e/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.metadata.help.example": [
-      "api-gateway-e2e/eslint.config.mjs",
+      "e2e/api-gateway-e2e/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "name": [
-      "api-gateway-e2e/project.json",
+      "e2e/api-gateway-e2e/project.json",
       "nx/core/project-json"
     ],
     "$schema": [
-      "api-gateway-e2e/project.json",
+      "e2e/api-gateway-e2e/project.json",
       "nx/core/project-json"
     ],
     "projectType": [
-      "api-gateway-e2e/project.json",
+      "e2e/api-gateway-e2e/project.json",
       "nx/core/project-json"
     ],
     "implicitDependencies": [
-      "api-gateway-e2e/project.json",
+      "e2e/api-gateway-e2e/project.json",
       "nx/core/project-json"
     ],
     "implicitDependencies.api-gateway": [
-      "api-gateway-e2e/project.json",
+      "e2e/api-gateway-e2e/project.json",
       "nx/core/project-json"
     ],
     "targets.e2e": [
-      "api-gateway-e2e/project.json",
+      "e2e/api-gateway-e2e/project.json",
       "nx/core/project-json"
     ],
     "targets.e2e.executor": [
-      "api-gateway-e2e/project.json",
+      "e2e/api-gateway-e2e/project.json",
       "nx/core/project-json"
     ],
     "targets.e2e.outputs": [
-      "api-gateway-e2e/project.json",
+      "e2e/api-gateway-e2e/project.json",
       "nx/core/project-json"
     ],
     "targets.e2e.options": [
-      "api-gateway-e2e/project.json",
+      "e2e/api-gateway-e2e/project.json",
       "nx/core/project-json"
     ],
     "targets.e2e.dependsOn": [
-      "api-gateway-e2e/project.json",
+      "e2e/api-gateway-e2e/project.json",
       "nx/core/project-json"
     ],
     "targets.e2e.options.jestConfig": [
-      "api-gateway-e2e/project.json",
+      "e2e/api-gateway-e2e/project.json",
       "nx/core/project-json"
     ],
     "targets.e2e.options.passWithNoTests": [
-      "api-gateway-e2e/project.json",
+      "e2e/api-gateway-e2e/project.json",
       "nx/core/project-json"
     ]
   },
-  "api-users-e2e": {
+  "e2e/api-users-e2e": {
     "root": [
-      "api-users-e2e/project.json",
+      "e2e/api-users-e2e/project.json",
       "nx/core/project-json"
     ],
     "targets": [
-      "api-users-e2e/eslint.config.mjs",
+      "e2e/api-users-e2e/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint": [
-      "api-users-e2e/eslint.config.mjs",
+      "e2e/api-users-e2e/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.cache": [
-      "api-users-e2e/eslint.config.mjs",
+      "e2e/api-users-e2e/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.options": [
-      "api-users-e2e/eslint.config.mjs",
+      "e2e/api-users-e2e/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.inputs": [
-      "api-users-e2e/eslint.config.mjs",
+      "e2e/api-users-e2e/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.outputs": [
-      "api-users-e2e/eslint.config.mjs",
+      "e2e/api-users-e2e/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.metadata": [
-      "api-users-e2e/eslint.config.mjs",
+      "e2e/api-users-e2e/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.executor": [
-      "api-users-e2e/eslint.config.mjs",
+      "e2e/api-users-e2e/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.options.cwd": [
-      "api-users-e2e/eslint.config.mjs",
+      "e2e/api-users-e2e/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.options.command": [
-      "api-users-e2e/eslint.config.mjs",
+      "e2e/api-users-e2e/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.metadata.technologies": [
-      "api-users-e2e/eslint.config.mjs",
+      "e2e/api-users-e2e/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.metadata.technologies.0": [
-      "api-users-e2e/eslint.config.mjs",
+      "e2e/api-users-e2e/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.metadata.description": [
-      "api-users-e2e/eslint.config.mjs",
+      "e2e/api-users-e2e/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.metadata.help": [
-      "api-users-e2e/eslint.config.mjs",
+      "e2e/api-users-e2e/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.metadata.help.command": [
-      "api-users-e2e/eslint.config.mjs",
+      "e2e/api-users-e2e/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "targets.lint.metadata.help.example": [
-      "api-users-e2e/eslint.config.mjs",
+      "e2e/api-users-e2e/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
     "name": [
-      "api-users-e2e/project.json",
+      "e2e/api-users-e2e/project.json",
       "nx/core/project-json"
     ],
     "$schema": [
-      "api-users-e2e/project.json",
+      "e2e/api-users-e2e/project.json",
       "nx/core/project-json"
     ],
     "projectType": [
-      "api-users-e2e/project.json",
+      "e2e/api-users-e2e/project.json",
       "nx/core/project-json"
     ],
     "implicitDependencies": [
-      "api-users-e2e/project.json",
+      "e2e/api-users-e2e/project.json",
       "nx/core/project-json"
     ],
     "implicitDependencies.api-users": [
-      "api-users-e2e/project.json",
+      "e2e/api-users-e2e/project.json",
       "nx/core/project-json"
     ],
     "targets.e2e": [
-      "api-users-e2e/project.json",
+      "e2e/api-users-e2e/project.json",
       "nx/core/project-json"
     ],
     "targets.e2e.executor": [
-      "api-users-e2e/project.json",
+      "e2e/api-users-e2e/project.json",
       "nx/core/project-json"
     ],
     "targets.e2e.outputs": [
-      "api-users-e2e/project.json",
+      "e2e/api-users-e2e/project.json",
       "nx/core/project-json"
     ],
     "targets.e2e.options": [
-      "api-users-e2e/project.json",
+      "e2e/api-users-e2e/project.json",
       "nx/core/project-json"
     ],
     "targets.e2e.dependsOn": [
-      "api-users-e2e/project.json",
+      "e2e/api-users-e2e/project.json",
       "nx/core/project-json"
     ],
     "targets.e2e.options.jestConfig": [
-      "api-users-e2e/project.json",
+      "e2e/api-users-e2e/project.json",
       "nx/core/project-json"
     ],
     "targets.e2e.options.passWithNoTests": [
-      "api-users-e2e/project.json",
+      "e2e/api-users-e2e/project.json",
+      "nx/core/project-json"
+    ]
+  },
+  "e2e/web-portal-e2e": {
+    "root": [
+      "e2e/web-portal-e2e/project.json",
+      "nx/core/project-json"
+    ],
+    "targets": [
+      "e2e/web-portal-e2e/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint": [
+      "e2e/web-portal-e2e/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.cache": [
+      "e2e/web-portal-e2e/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options": [
+      "e2e/web-portal-e2e/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.inputs": [
+      "e2e/web-portal-e2e/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.outputs": [
+      "e2e/web-portal-e2e/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata": [
+      "e2e/web-portal-e2e/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.executor": [
+      "e2e/web-portal-e2e/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.cwd": [
+      "e2e/web-portal-e2e/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.command": [
+      "e2e/web-portal-e2e/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies": [
+      "e2e/web-portal-e2e/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies.0": [
+      "e2e/web-portal-e2e/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.description": [
+      "e2e/web-portal-e2e/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help": [
+      "e2e/web-portal-e2e/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.command": [
+      "e2e/web-portal-e2e/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.example": [
+      "e2e/web-portal-e2e/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "metadata.targetGroups": [
+      "e2e/web-portal-e2e/playwright.config.ts",
+      "@nx/playwright/plugin"
+    ],
+    "metadata.targetGroups.E2E (CI)": [
+      "e2e/web-portal-e2e/playwright.config.ts",
+      "@nx/playwright/plugin"
+    ],
+    "metadata.targetGroups.E2E (CI).0": [
+      "e2e/web-portal-e2e/playwright.config.ts",
+      "@nx/playwright/plugin"
+    ],
+    "metadata.targetGroups.E2E (CI).1": [
+      "e2e/web-portal-e2e/playwright.config.ts",
+      "@nx/playwright/plugin"
+    ],
+    "targets.e2e": [
+      "e2e/web-portal-e2e/playwright.config.ts",
+      "@nx/playwright/plugin"
+    ],
+    "targets.e2e.options": [
+      "e2e/web-portal-e2e/playwright.config.ts",
+      "@nx/playwright/plugin"
+    ],
+    "targets.e2e.metadata": [
+      "e2e/web-portal-e2e/playwright.config.ts",
+      "@nx/playwright/plugin"
+    ],
+    "targets.e2e.dependsOn": [
+      "e2e/web-portal-e2e/playwright.config.ts",
+      "@nx/playwright/plugin"
+    ],
+    "targets.e2e.cache": [
+      "e2e/web-portal-e2e/playwright.config.ts",
+      "@nx/playwright/plugin"
+    ],
+    "targets.e2e.inputs": [
+      "e2e/web-portal-e2e/playwright.config.ts",
+      "@nx/playwright/plugin"
+    ],
+    "targets.e2e.outputs": [
+      "e2e/web-portal-e2e/playwright.config.ts",
+      "@nx/playwright/plugin"
+    ],
+    "targets.e2e.executor": [
+      "e2e/web-portal-e2e/playwright.config.ts",
+      "@nx/playwright/plugin"
+    ],
+    "targets.e2e.options.cwd": [
+      "e2e/web-portal-e2e/playwright.config.ts",
+      "@nx/playwright/plugin"
+    ],
+    "targets.e2e.options.command": [
+      "e2e/web-portal-e2e/playwright.config.ts",
+      "@nx/playwright/plugin"
+    ],
+    "targets.e2e.metadata.technologies": [
+      "e2e/web-portal-e2e/playwright.config.ts",
+      "@nx/playwright/plugin"
+    ],
+    "targets.e2e.metadata.technologies.0": [
+      "e2e/web-portal-e2e/playwright.config.ts",
+      "@nx/playwright/plugin"
+    ],
+    "targets.e2e.metadata.description": [
+      "e2e/web-portal-e2e/playwright.config.ts",
+      "@nx/playwright/plugin"
+    ],
+    "targets.e2e.metadata.help": [
+      "e2e/web-portal-e2e/playwright.config.ts",
+      "@nx/playwright/plugin"
+    ],
+    "targets.e2e.metadata.help.command": [
+      "e2e/web-portal-e2e/playwright.config.ts",
+      "@nx/playwright/plugin"
+    ],
+    "targets.e2e.metadata.help.example": [
+      "e2e/web-portal-e2e/playwright.config.ts",
+      "@nx/playwright/plugin"
+    ],
+    "targets.e2e-ci--src/example.spec.ts": [
+      "e2e/web-portal-e2e/playwright.config.ts",
+      "@nx/playwright/plugin"
+    ],
+    "targets.e2e-ci--src/example.spec.ts.options": [
+      "e2e/web-portal-e2e/playwright.config.ts",
+      "@nx/playwright/plugin"
+    ],
+    "targets.e2e-ci--src/example.spec.ts.metadata": [
+      "e2e/web-portal-e2e/playwright.config.ts",
+      "@nx/playwright/plugin"
+    ],
+    "targets.e2e-ci--src/example.spec.ts.dependsOn": [
+      "e2e/web-portal-e2e/playwright.config.ts",
+      "@nx/playwright/plugin"
+    ],
+    "targets.e2e-ci--src/example.spec.ts.cache": [
+      "e2e/web-portal-e2e/playwright.config.ts",
+      "@nx/playwright/plugin"
+    ],
+    "targets.e2e-ci--src/example.spec.ts.inputs": [
+      "e2e/web-portal-e2e/playwright.config.ts",
+      "@nx/playwright/plugin"
+    ],
+    "targets.e2e-ci--src/example.spec.ts.outputs": [
+      "e2e/web-portal-e2e/playwright.config.ts",
+      "@nx/playwright/plugin"
+    ],
+    "targets.e2e-ci--src/example.spec.ts.executor": [
+      "e2e/web-portal-e2e/playwright.config.ts",
+      "@nx/playwright/plugin"
+    ],
+    "targets.e2e-ci--src/example.spec.ts.options.cwd": [
+      "e2e/web-portal-e2e/playwright.config.ts",
+      "@nx/playwright/plugin"
+    ],
+    "targets.e2e-ci--src/example.spec.ts.options.env": [
+      "e2e/web-portal-e2e/playwright.config.ts",
+      "@nx/playwright/plugin"
+    ],
+    "targets.e2e-ci--src/example.spec.ts.options.command": [
+      "e2e/web-portal-e2e/playwright.config.ts",
+      "@nx/playwright/plugin"
+    ],
+    "targets.e2e-ci--src/example.spec.ts.metadata.technologies": [
+      "e2e/web-portal-e2e/playwright.config.ts",
+      "@nx/playwright/plugin"
+    ],
+    "targets.e2e-ci--src/example.spec.ts.metadata.technologies.0": [
+      "e2e/web-portal-e2e/playwright.config.ts",
+      "@nx/playwright/plugin"
+    ],
+    "targets.e2e-ci--src/example.spec.ts.metadata.description": [
+      "e2e/web-portal-e2e/playwright.config.ts",
+      "@nx/playwright/plugin"
+    ],
+    "targets.e2e-ci--src/example.spec.ts.metadata.help": [
+      "e2e/web-portal-e2e/playwright.config.ts",
+      "@nx/playwright/plugin"
+    ],
+    "targets.e2e-ci--src/example.spec.ts.metadata.help.command": [
+      "e2e/web-portal-e2e/playwright.config.ts",
+      "@nx/playwright/plugin"
+    ],
+    "targets.e2e-ci--src/example.spec.ts.metadata.help.example": [
+      "e2e/web-portal-e2e/playwright.config.ts",
+      "@nx/playwright/plugin"
+    ],
+    "targets.e2e-ci": [
+      "e2e/web-portal-e2e/playwright.config.ts",
+      "@nx/playwright/plugin"
+    ],
+    "targets.e2e-ci.executor": [
+      "e2e/web-portal-e2e/playwright.config.ts",
+      "@nx/playwright/plugin"
+    ],
+    "targets.e2e-ci.cache": [
+      "e2e/web-portal-e2e/playwright.config.ts",
+      "@nx/playwright/plugin"
+    ],
+    "targets.e2e-ci.inputs": [
+      "e2e/web-portal-e2e/playwright.config.ts",
+      "@nx/playwright/plugin"
+    ],
+    "targets.e2e-ci.outputs": [
+      "e2e/web-portal-e2e/playwright.config.ts",
+      "@nx/playwright/plugin"
+    ],
+    "targets.e2e-ci.dependsOn": [
+      "e2e/web-portal-e2e/playwright.config.ts",
+      "@nx/playwright/plugin"
+    ],
+    "targets.e2e-ci.metadata": [
+      "e2e/web-portal-e2e/playwright.config.ts",
+      "@nx/playwright/plugin"
+    ],
+    "targets.e2e-ci.metadata.technologies": [
+      "e2e/web-portal-e2e/playwright.config.ts",
+      "@nx/playwright/plugin"
+    ],
+    "targets.e2e-ci.metadata.technologies.0": [
+      "e2e/web-portal-e2e/playwright.config.ts",
+      "@nx/playwright/plugin"
+    ],
+    "targets.e2e-ci.metadata.description": [
+      "e2e/web-portal-e2e/playwright.config.ts",
+      "@nx/playwright/plugin"
+    ],
+    "targets.e2e-ci.metadata.nonAtomizedTarget": [
+      "e2e/web-portal-e2e/playwright.config.ts",
+      "@nx/playwright/plugin"
+    ],
+    "targets.e2e-ci.metadata.help": [
+      "e2e/web-portal-e2e/playwright.config.ts",
+      "@nx/playwright/plugin"
+    ],
+    "targets.e2e-ci.metadata.help.command": [
+      "e2e/web-portal-e2e/playwright.config.ts",
+      "@nx/playwright/plugin"
+    ],
+    "targets.e2e-ci.metadata.help.example": [
+      "e2e/web-portal-e2e/playwright.config.ts",
+      "@nx/playwright/plugin"
+    ],
+    "name": [
+      "e2e/web-portal-e2e/project.json",
+      "nx/core/project-json"
+    ],
+    "$schema": [
+      "e2e/web-portal-e2e/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "e2e/web-portal-e2e/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "e2e/web-portal-e2e/project.json",
+      "nx/core/project-json"
+    ],
+    "// targets": [
+      "e2e/web-portal-e2e/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "e2e/web-portal-e2e/project.json",
+      "nx/core/project-json"
+    ],
+    "implicitDependencies": [
+      "e2e/web-portal-e2e/project.json",
+      "nx/core/project-json"
+    ],
+    "implicitDependencies.web-portal": [
+      "e2e/web-portal-e2e/project.json",
+      "nx/core/project-json"
+    ]
+  },
+  "services/web-portal": {
+    "root": [
+      "services/web-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "targets": [
+      "services/web-portal/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint": [
+      "services/web-portal/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.cache": [
+      "services/web-portal/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options": [
+      "services/web-portal/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.inputs": [
+      "services/web-portal/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.outputs": [
+      "services/web-portal/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata": [
+      "services/web-portal/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.executor": [
+      "services/web-portal/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.cwd": [
+      "services/web-portal/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.command": [
+      "services/web-portal/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies": [
+      "services/web-portal/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies.0": [
+      "services/web-portal/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.description": [
+      "services/web-portal/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help": [
+      "services/web-portal/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.command": [
+      "services/web-portal/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.example": [
+      "services/web-portal/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.test": [
+      "services/web-portal/jest.config.ts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.options": [
+      "services/web-portal/jest.config.ts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.metadata": [
+      "services/web-portal/jest.config.ts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.cache": [
+      "services/web-portal/jest.config.ts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.inputs": [
+      "services/web-portal/jest.config.ts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.outputs": [
+      "services/web-portal/jest.config.ts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.executor": [
+      "services/web-portal/jest.config.ts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.options.cwd": [
+      "services/web-portal/jest.config.ts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.options.env": [
+      "services/web-portal/jest.config.ts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.options.command": [
+      "services/web-portal/jest.config.ts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.metadata.technologies": [
+      "services/web-portal/jest.config.ts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.metadata.technologies.0": [
+      "services/web-portal/jest.config.ts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.metadata.description": [
+      "services/web-portal/jest.config.ts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.metadata.help": [
+      "services/web-portal/jest.config.ts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.metadata.help.command": [
+      "services/web-portal/jest.config.ts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.metadata.help.example": [
+      "services/web-portal/jest.config.ts",
+      "@nx/jest/plugin"
+    ],
+    "targets.build": [
+      "services/web-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.build.options": [
+      "services/web-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.build.dependsOn": [
+      "services/web-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.build.cache": [
+      "services/web-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.build.inputs": [
+      "services/web-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.build.outputs": [
+      "services/web-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.build.executor": [
+      "services/web-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.build.options.cwd": [
+      "services/web-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.build.options.tty": [
+      "services/web-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.build.options.command": [
+      "services/web-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.dev": [
+      "services/web-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.dev.continuous": [
+      "services/web-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.dev.options": [
+      "services/web-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.dev.executor": [
+      "services/web-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.dev.options.cwd": [
+      "services/web-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.dev.options.command": [
+      "services/web-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.start": [
+      "services/web-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.start.continuous": [
+      "services/web-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.start.options": [
+      "services/web-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.start.dependsOn": [
+      "services/web-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.start.executor": [
+      "services/web-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.start.options.cwd": [
+      "services/web-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.start.options.command": [
+      "services/web-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.serve-static": [
+      "services/web-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.serve-static.continuous": [
+      "services/web-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.serve-static.options": [
+      "services/web-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.serve-static.dependsOn": [
+      "services/web-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.serve-static.executor": [
+      "services/web-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.serve-static.options.cwd": [
+      "services/web-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.serve-static.options.command": [
+      "services/web-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.build-deps": [
+      "services/web-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.build-deps.dependsOn": [
+      "services/web-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.watch-deps": [
+      "services/web-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.watch-deps.continuous": [
+      "services/web-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.watch-deps.dependsOn": [
+      "services/web-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.watch-deps.executor": [
+      "services/web-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.watch-deps.options": [
+      "services/web-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.watch-deps.options.command": [
+      "services/web-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "name": [
+      "services/web-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "$schema": [
+      "services/web-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "services/web-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "services/web-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "// targets": [
+      "services/web-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "services/web-portal/project.json",
       "nx/core/project-json"
     ]
   },
@@ -1691,622 +2307,6 @@
     "targets.build.parallelism": [
       "nx.json",
       "nx/target-defaults"
-    ]
-  },
-  "web-portal": {
-    "root": [
-      "web-portal/project.json",
-      "nx/core/project-json"
-    ],
-    "targets": [
-      "web-portal/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint": [
-      "web-portal/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.cache": [
-      "web-portal/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.options": [
-      "web-portal/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.inputs": [
-      "web-portal/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.outputs": [
-      "web-portal/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.metadata": [
-      "web-portal/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.executor": [
-      "web-portal/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.options.cwd": [
-      "web-portal/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.options.command": [
-      "web-portal/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.metadata.technologies": [
-      "web-portal/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.metadata.technologies.0": [
-      "web-portal/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.metadata.description": [
-      "web-portal/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.metadata.help": [
-      "web-portal/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.metadata.help.command": [
-      "web-portal/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.metadata.help.example": [
-      "web-portal/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.test": [
-      "web-portal/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options": [
-      "web-portal/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata": [
-      "web-portal/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.cache": [
-      "web-portal/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.inputs": [
-      "web-portal/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.outputs": [
-      "web-portal/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.executor": [
-      "web-portal/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options.cwd": [
-      "web-portal/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options.env": [
-      "web-portal/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options.command": [
-      "web-portal/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.technologies": [
-      "web-portal/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.technologies.0": [
-      "web-portal/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.description": [
-      "web-portal/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.help": [
-      "web-portal/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.help.command": [
-      "web-portal/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.help.example": [
-      "web-portal/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.build": [
-      "web-portal/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.build.options": [
-      "web-portal/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.build.dependsOn": [
-      "web-portal/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.build.cache": [
-      "web-portal/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.build.inputs": [
-      "web-portal/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.build.outputs": [
-      "web-portal/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.build.executor": [
-      "web-portal/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.build.options.cwd": [
-      "web-portal/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.build.options.tty": [
-      "web-portal/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.build.options.command": [
-      "web-portal/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.dev": [
-      "web-portal/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.dev.continuous": [
-      "web-portal/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.dev.options": [
-      "web-portal/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.dev.executor": [
-      "web-portal/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.dev.options.cwd": [
-      "web-portal/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.dev.options.command": [
-      "web-portal/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.start": [
-      "web-portal/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.start.continuous": [
-      "web-portal/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.start.options": [
-      "web-portal/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.start.dependsOn": [
-      "web-portal/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.start.executor": [
-      "web-portal/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.start.options.cwd": [
-      "web-portal/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.start.options.command": [
-      "web-portal/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.serve-static": [
-      "web-portal/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.serve-static.continuous": [
-      "web-portal/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.serve-static.options": [
-      "web-portal/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.serve-static.dependsOn": [
-      "web-portal/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.serve-static.executor": [
-      "web-portal/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.serve-static.options.cwd": [
-      "web-portal/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.serve-static.options.command": [
-      "web-portal/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.build-deps": [
-      "web-portal/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.build-deps.dependsOn": [
-      "web-portal/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.watch-deps": [
-      "web-portal/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.watch-deps.continuous": [
-      "web-portal/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.watch-deps.dependsOn": [
-      "web-portal/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.watch-deps.executor": [
-      "web-portal/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.watch-deps.options": [
-      "web-portal/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.watch-deps.options.command": [
-      "web-portal/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "name": [
-      "web-portal/project.json",
-      "nx/core/project-json"
-    ],
-    "$schema": [
-      "web-portal/project.json",
-      "nx/core/project-json"
-    ],
-    "sourceRoot": [
-      "web-portal/project.json",
-      "nx/core/project-json"
-    ],
-    "projectType": [
-      "web-portal/project.json",
-      "nx/core/project-json"
-    ],
-    "// targets": [
-      "web-portal/project.json",
-      "nx/core/project-json"
-    ],
-    "tags": [
-      "web-portal/project.json",
-      "nx/core/project-json"
-    ]
-  },
-  "web-portal-e2e": {
-    "root": [
-      "web-portal-e2e/project.json",
-      "nx/core/project-json"
-    ],
-    "targets": [
-      "web-portal-e2e/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint": [
-      "web-portal-e2e/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.cache": [
-      "web-portal-e2e/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.options": [
-      "web-portal-e2e/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.inputs": [
-      "web-portal-e2e/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.outputs": [
-      "web-portal-e2e/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.metadata": [
-      "web-portal-e2e/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.executor": [
-      "web-portal-e2e/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.options.cwd": [
-      "web-portal-e2e/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.options.command": [
-      "web-portal-e2e/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.metadata.technologies": [
-      "web-portal-e2e/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.metadata.technologies.0": [
-      "web-portal-e2e/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.metadata.description": [
-      "web-portal-e2e/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.metadata.help": [
-      "web-portal-e2e/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.metadata.help.command": [
-      "web-portal-e2e/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.metadata.help.example": [
-      "web-portal-e2e/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "metadata.targetGroups": [
-      "web-portal-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "metadata.targetGroups.E2E (CI)": [
-      "web-portal-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "metadata.targetGroups.E2E (CI).0": [
-      "web-portal-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "metadata.targetGroups.E2E (CI).1": [
-      "web-portal-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e": [
-      "web-portal-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e.options": [
-      "web-portal-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e.metadata": [
-      "web-portal-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e.dependsOn": [
-      "web-portal-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e.cache": [
-      "web-portal-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e.inputs": [
-      "web-portal-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e.outputs": [
-      "web-portal-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e.executor": [
-      "web-portal-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e.options.cwd": [
-      "web-portal-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e.options.command": [
-      "web-portal-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e.metadata.technologies": [
-      "web-portal-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e.metadata.technologies.0": [
-      "web-portal-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e.metadata.description": [
-      "web-portal-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e.metadata.help": [
-      "web-portal-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e.metadata.help.command": [
-      "web-portal-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e.metadata.help.example": [
-      "web-portal-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci--src/example.spec.ts": [
-      "web-portal-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci--src/example.spec.ts.options": [
-      "web-portal-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci--src/example.spec.ts.metadata": [
-      "web-portal-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci--src/example.spec.ts.dependsOn": [
-      "web-portal-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci--src/example.spec.ts.cache": [
-      "web-portal-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci--src/example.spec.ts.inputs": [
-      "web-portal-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci--src/example.spec.ts.outputs": [
-      "web-portal-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci--src/example.spec.ts.executor": [
-      "web-portal-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci--src/example.spec.ts.options.cwd": [
-      "web-portal-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci--src/example.spec.ts.options.env": [
-      "web-portal-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci--src/example.spec.ts.options.command": [
-      "web-portal-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci--src/example.spec.ts.metadata.technologies": [
-      "web-portal-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci--src/example.spec.ts.metadata.technologies.0": [
-      "web-portal-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci--src/example.spec.ts.metadata.description": [
-      "web-portal-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci--src/example.spec.ts.metadata.help": [
-      "web-portal-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci--src/example.spec.ts.metadata.help.command": [
-      "web-portal-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci--src/example.spec.ts.metadata.help.example": [
-      "web-portal-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci": [
-      "web-portal-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci.executor": [
-      "web-portal-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci.cache": [
-      "web-portal-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci.inputs": [
-      "web-portal-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci.outputs": [
-      "web-portal-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci.dependsOn": [
-      "web-portal-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci.metadata": [
-      "web-portal-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci.metadata.technologies": [
-      "web-portal-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci.metadata.technologies.0": [
-      "web-portal-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci.metadata.description": [
-      "web-portal-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci.metadata.nonAtomizedTarget": [
-      "web-portal-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci.metadata.help": [
-      "web-portal-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci.metadata.help.command": [
-      "web-portal-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci.metadata.help.example": [
-      "web-portal-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "name": [
-      "web-portal-e2e/project.json",
-      "nx/core/project-json"
-    ],
-    "$schema": [
-      "web-portal-e2e/project.json",
-      "nx/core/project-json"
-    ],
-    "projectType": [
-      "web-portal-e2e/project.json",
-      "nx/core/project-json"
-    ],
-    "sourceRoot": [
-      "web-portal-e2e/project.json",
-      "nx/core/project-json"
-    ],
-    "// targets": [
-      "web-portal-e2e/project.json",
-      "nx/core/project-json"
-    ],
-    "tags": [
-      "web-portal-e2e/project.json",
-      "nx/core/project-json"
-    ],
-    "implicitDependencies": [
-      "web-portal-e2e/project.json",
-      "nx/core/project-json"
-    ],
-    "implicitDependencies.web-portal": [
-      "web-portal-e2e/project.json",
-      "nx/core/project-json"
     ]
   }
 }

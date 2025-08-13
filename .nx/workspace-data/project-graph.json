@@ -1,22 +1,254 @@
 {
   "nodes": {
-    "api-gateway-e2e": {
-      "name": "api-gateway-e2e",
-      "type": "e2e",
+    "api-gateway": {
+      "name": "api-gateway",
+      "type": "app",
       "data": {
-        "root": "api-gateway-e2e",
+        "root": "services/api-gateway",
+        "projectType": "application",
+        "metadata": {},
         "targets": {
+          "build": {
+            "cache": true,
+            "dependsOn": [
+              "^build"
+            ],
+            "inputs": [
+              "production",
+              "^production",
+              {
+                "externalDependencies": [
+                  "webpack-cli"
+                ]
+              }
+            ],
+            "outputs": [
+              "{workspaceRoot}/dist/api-gateway"
+            ],
+            "metadata": {
+              "technologies": [
+                "webpack"
+              ],
+              "description": "Runs Webpack build",
+              "help": {
+                "command": "npx webpack-cli build --help",
+                "example": {
+                  "options": {
+                    "json": "stats.json"
+                  },
+                  "args": [
+                    "--profile"
+                  ]
+                }
+              }
+            },
+            "executor": "nx:run-commands",
+            "options": {
+              "cwd": "services/api-gateway",
+              "args": [
+                "--node-env=production"
+              ],
+              "command": "webpack-cli build"
+            },
+            "configurations": {
+              "development": {
+                "args": [
+                  "--node-env=development"
+                ]
+              }
+            },
+            "parallelism": true
+          },
+          "serve": {
+            "continuous": true,
+            "executor": "@nx/js:node",
+            "defaultConfiguration": "development",
+            "dependsOn": [
+              "build"
+            ],
+            "options": {
+              "buildTarget": "api-gateway:build",
+              "runBuildTargetDependencies": false
+            },
+            "configurations": {
+              "development": {
+                "buildTarget": "api-gateway:build:development"
+              },
+              "production": {
+                "buildTarget": "api-gateway:build:production"
+              }
+            },
+            "parallelism": true
+          },
+          "preview": {
+            "continuous": true,
+            "options": {
+              "cwd": "services/api-gateway",
+              "args": [
+                "--node-env=production"
+              ],
+              "command": "webpack-cli serve"
+            },
+            "metadata": {
+              "technologies": [
+                "webpack"
+              ],
+              "description": "Starts Webpack dev server in production mode",
+              "help": {
+                "command": "npx webpack-cli serve --help",
+                "example": {
+                  "options": {
+                    "args": [
+                      "--client-progress",
+                      "--history-api-fallback "
+                    ]
+                  }
+                }
+              }
+            },
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          },
+          "serve-static": {
+            "continuous": true,
+            "dependsOn": [
+              "build"
+            ],
+            "executor": "@nx/web:file-server",
+            "options": {
+              "buildTarget": "build",
+              "spa": true
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "build-deps": {
+            "dependsOn": [
+              "^build"
+            ],
+            "configurations": {},
+            "options": {},
+            "parallelism": true,
+            "executor": "nx:noop"
+          },
+          "watch-deps": {
+            "continuous": true,
+            "dependsOn": [
+              "build-deps"
+            ],
+            "executor": "nx:run-commands",
+            "options": {
+              "command": "npx nx watch --projects api-gateway --includeDependentProjects -- npx nx build-deps api-gateway"
+            },
+            "configurations": {},
+            "parallelism": true
+          },
           "lint": {
             "cache": true,
             "options": {
-              "cwd": "api-gateway-e2e",
+              "cwd": "services/api-gateway",
               "command": "eslint ."
             },
             "inputs": [
               "default",
               "^default",
               "{workspaceRoot}/eslint.config.mjs",
-              "{workspaceRoot}/api-gateway-e2e/eslint.config.mjs",
+              "{workspaceRoot}/services/api-gateway/eslint.config.mjs",
+              "{workspaceRoot}/tools/eslint-rules/**/*",
+              {
+                "externalDependencies": [
+                  "eslint"
+                ]
+              }
+            ],
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "metadata": {
+              "technologies": [
+                "eslint"
+              ],
+              "description": "Runs ESLint on project",
+              "help": {
+                "command": "npx eslint --help",
+                "example": {
+                  "options": {
+                    "max-warnings": 0
+                  }
+                }
+              }
+            },
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          },
+          "test": {
+            "metadata": {
+              "technologies": [
+                "jest"
+              ],
+              "description": "Run Jest Tests",
+              "help": {
+                "command": "npx jest --help",
+                "example": {
+                  "options": {
+                    "coverage": true
+                  }
+                }
+              }
+            },
+            "cache": true,
+            "inputs": [
+              "default",
+              "^production",
+              "{workspaceRoot}/jest.preset.js",
+              {
+                "externalDependencies": [
+                  "jest"
+                ]
+              }
+            ],
+            "outputs": [
+              "{workspaceRoot}/coverage/api-gateway"
+            ],
+            "executor": "nx:run-commands",
+            "options": {
+              "cwd": "services/api-gateway",
+              "env": {
+                "TS_NODE_COMPILER_OPTIONS": "{\"moduleResolution\":\"node10\",\"module\":\"commonjs\",\"customConditions\":null}"
+              },
+              "command": "jest",
+              "passWithNoTests": true
+            },
+            "configurations": {},
+            "parallelism": true
+          }
+        },
+        "name": "api-gateway",
+        "$schema": "../../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "services/api-gateway/src",
+        "tags": [],
+        "implicitDependencies": []
+      }
+    },
+    "api-gateway-e2e": {
+      "name": "api-gateway-e2e",
+      "type": "e2e",
+      "data": {
+        "root": "e2e/api-gateway-e2e",
+        "targets": {
+          "lint": {
+            "cache": true,
+            "options": {
+              "cwd": "e2e/api-gateway-e2e",
+              "command": "eslint ."
+            },
+            "inputs": [
+              "default",
+              "^default",
+              "{workspaceRoot}/eslint.config.mjs",
+              "{workspaceRoot}/e2e/api-gateway-e2e/eslint.config.mjs",
               "{workspaceRoot}/tools/eslint-rules/**/*",
               {
                 "externalDependencies": [
@@ -48,10 +280,10 @@
           "e2e": {
             "executor": "@nx/jest:jest",
             "outputs": [
-              "{workspaceRoot}/coverage/{e2eProjectRoot}"
+              "{workspaceRoot}/coverage/api-gateway-e2e"
             ],
             "options": {
-              "jestConfig": "api-gateway-e2e/jest.config.ts",
+              "jestConfig": "e2e/api-gateway-e2e/jest.config.ts",
               "passWithNoTests": true
             },
             "dependsOn": [
@@ -63,7 +295,7 @@
           }
         },
         "name": "api-gateway-e2e",
-        "$schema": "../node_modules/nx/schemas/project-schema.json",
+        "$schema": "../../node_modules/nx/schemas/project-schema.json",
         "projectType": "application",
         "implicitDependencies": [
           "api-gateway"
@@ -71,23 +303,430 @@
         "tags": []
       }
     },
-    "web-portal-e2e": {
-      "name": "web-portal-e2e",
-      "type": "e2e",
+    "web-portal": {
+      "name": "web-portal",
+      "type": "app",
       "data": {
-        "root": "web-portal-e2e",
+        "root": "services/web-portal",
         "targets": {
           "lint": {
             "cache": true,
             "options": {
-              "cwd": "web-portal-e2e",
+              "cwd": "services/web-portal",
               "command": "eslint ."
             },
             "inputs": [
               "default",
               "^default",
               "{workspaceRoot}/eslint.config.mjs",
-              "{workspaceRoot}/web-portal-e2e/eslint.config.mjs",
+              "{workspaceRoot}/services/web-portal/eslint.config.mjs",
+              "{workspaceRoot}/tools/eslint-rules/**/*",
+              {
+                "externalDependencies": [
+                  "eslint"
+                ]
+              }
+            ],
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "metadata": {
+              "technologies": [
+                "eslint"
+              ],
+              "description": "Runs ESLint on project",
+              "help": {
+                "command": "npx eslint --help",
+                "example": {
+                  "options": {
+                    "max-warnings": 0
+                  }
+                }
+              }
+            },
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          },
+          "test": {
+            "options": {
+              "cwd": "services/web-portal",
+              "env": {
+                "TS_NODE_COMPILER_OPTIONS": "{\"moduleResolution\":\"node10\",\"module\":\"commonjs\",\"customConditions\":null}"
+              },
+              "command": "jest"
+            },
+            "metadata": {
+              "technologies": [
+                "jest"
+              ],
+              "description": "Run Jest Tests",
+              "help": {
+                "command": "npx jest --help",
+                "example": {
+                  "options": {
+                    "coverage": true
+                  }
+                }
+              }
+            },
+            "cache": true,
+            "inputs": [
+              "default",
+              "^production",
+              {
+                "externalDependencies": [
+                  "jest"
+                ]
+              }
+            ],
+            "outputs": [],
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          },
+          "build": {
+            "options": {
+              "cwd": "services/web-portal",
+              "tty": false,
+              "command": "next build"
+            },
+            "dependsOn": [
+              "^build"
+            ],
+            "cache": true,
+            "inputs": [
+              "default",
+              "^production",
+              {
+                "externalDependencies": [
+                  "next"
+                ]
+              }
+            ],
+            "outputs": [
+              "{workspaceRoot}/services/web-portal/.next/!(cache)/**/*",
+              "{workspaceRoot}/services/web-portal/.next/!(cache)"
+            ],
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          },
+          "dev": {
+            "continuous": true,
+            "options": {
+              "cwd": "services/web-portal",
+              "command": "next dev"
+            },
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          },
+          "start": {
+            "continuous": true,
+            "options": {
+              "cwd": "services/web-portal",
+              "command": "next start"
+            },
+            "dependsOn": [
+              "build"
+            ],
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          },
+          "serve-static": {
+            "continuous": true,
+            "options": {
+              "cwd": "services/web-portal",
+              "command": "next start"
+            },
+            "dependsOn": [
+              "build"
+            ],
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          },
+          "build-deps": {
+            "dependsOn": [
+              "^build"
+            ],
+            "configurations": {},
+            "options": {},
+            "parallelism": true,
+            "executor": "nx:noop"
+          },
+          "watch-deps": {
+            "continuous": true,
+            "dependsOn": [
+              "build-deps"
+            ],
+            "executor": "nx:run-commands",
+            "options": {
+              "command": "npx nx watch --projects web-portal --includeDependentProjects -- npx nx build-deps web-portal"
+            },
+            "configurations": {},
+            "parallelism": true
+          }
+        },
+        "name": "web-portal",
+        "$schema": "../../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "services/web-portal",
+        "projectType": "application",
+        "tags": [],
+        "implicitDependencies": []
+      }
+    },
+    "api-users": {
+      "name": "api-users",
+      "type": "app",
+      "data": {
+        "root": "services/api-users",
+        "projectType": "application",
+        "metadata": {},
+        "targets": {
+          "build": {
+            "cache": true,
+            "dependsOn": [
+              "^build"
+            ],
+            "inputs": [
+              "production",
+              "^production",
+              {
+                "externalDependencies": [
+                  "webpack-cli"
+                ]
+              }
+            ],
+            "outputs": [
+              "{workspaceRoot}/dist/api-users"
+            ],
+            "metadata": {
+              "technologies": [
+                "webpack"
+              ],
+              "description": "Runs Webpack build",
+              "help": {
+                "command": "npx webpack-cli build --help",
+                "example": {
+                  "options": {
+                    "json": "stats.json"
+                  },
+                  "args": [
+                    "--profile"
+                  ]
+                }
+              }
+            },
+            "executor": "nx:run-commands",
+            "options": {
+              "cwd": "services/api-users",
+              "args": [
+                "--node-env=production"
+              ],
+              "command": "webpack-cli build"
+            },
+            "configurations": {
+              "development": {
+                "args": [
+                  "--node-env=development"
+                ]
+              }
+            },
+            "parallelism": true
+          },
+          "serve": {
+            "continuous": true,
+            "executor": "@nx/js:node",
+            "defaultConfiguration": "development",
+            "dependsOn": [
+              "build"
+            ],
+            "options": {
+              "buildTarget": "api-users:build",
+              "runBuildTargetDependencies": false
+            },
+            "configurations": {
+              "development": {
+                "buildTarget": "api-users:build:development"
+              },
+              "production": {
+                "buildTarget": "api-users:build:production"
+              }
+            },
+            "parallelism": true
+          },
+          "preview": {
+            "continuous": true,
+            "options": {
+              "cwd": "services/api-users",
+              "args": [
+                "--node-env=production"
+              ],
+              "command": "webpack-cli serve"
+            },
+            "metadata": {
+              "technologies": [
+                "webpack"
+              ],
+              "description": "Starts Webpack dev server in production mode",
+              "help": {
+                "command": "npx webpack-cli serve --help",
+                "example": {
+                  "options": {
+                    "args": [
+                      "--client-progress",
+                      "--history-api-fallback "
+                    ]
+                  }
+                }
+              }
+            },
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          },
+          "serve-static": {
+            "continuous": true,
+            "dependsOn": [
+              "build"
+            ],
+            "executor": "@nx/web:file-server",
+            "options": {
+              "buildTarget": "build",
+              "spa": true
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "build-deps": {
+            "dependsOn": [
+              "^build"
+            ],
+            "configurations": {},
+            "options": {},
+            "parallelism": true,
+            "executor": "nx:noop"
+          },
+          "watch-deps": {
+            "continuous": true,
+            "dependsOn": [
+              "build-deps"
+            ],
+            "executor": "nx:run-commands",
+            "options": {
+              "command": "npx nx watch --projects api-users --includeDependentProjects -- npx nx build-deps api-users"
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "lint": {
+            "cache": true,
+            "options": {
+              "cwd": "services/api-users",
+              "command": "eslint ."
+            },
+            "inputs": [
+              "default",
+              "^default",
+              "{workspaceRoot}/eslint.config.mjs",
+              "{workspaceRoot}/services/api-users/eslint.config.mjs",
+              "{workspaceRoot}/tools/eslint-rules/**/*",
+              {
+                "externalDependencies": [
+                  "eslint"
+                ]
+              }
+            ],
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "metadata": {
+              "technologies": [
+                "eslint"
+              ],
+              "description": "Runs ESLint on project",
+              "help": {
+                "command": "npx eslint --help",
+                "example": {
+                  "options": {
+                    "max-warnings": 0
+                  }
+                }
+              }
+            },
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          },
+          "test": {
+            "metadata": {
+              "technologies": [
+                "jest"
+              ],
+              "description": "Run Jest Tests",
+              "help": {
+                "command": "npx jest --help",
+                "example": {
+                  "options": {
+                    "coverage": true
+                  }
+                }
+              }
+            },
+            "cache": true,
+            "inputs": [
+              "default",
+              "^production",
+              "{workspaceRoot}/jest.preset.js",
+              {
+                "externalDependencies": [
+                  "jest"
+                ]
+              }
+            ],
+            "outputs": [
+              "{workspaceRoot}/coverage/api-users"
+            ],
+            "executor": "nx:run-commands",
+            "options": {
+              "cwd": "services/api-users",
+              "env": {
+                "TS_NODE_COMPILER_OPTIONS": "{\"moduleResolution\":\"node10\",\"module\":\"commonjs\",\"customConditions\":null}"
+              },
+              "command": "jest",
+              "passWithNoTests": true
+            },
+            "configurations": {},
+            "parallelism": true
+          }
+        },
+        "name": "api-users",
+        "$schema": "../../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "services/api-users/src",
+        "tags": [],
+        "implicitDependencies": []
+      }
+    },
+    "web-portal-e2e": {
+      "name": "web-portal-e2e",
+      "type": "e2e",
+      "data": {
+        "root": "e2e/web-portal-e2e",
+        "targets": {
+          "lint": {
+            "cache": true,
+            "options": {
+              "cwd": "e2e/web-portal-e2e",
+              "command": "eslint ."
+            },
+            "inputs": [
+              "default",
+              "^default",
+              "{workspaceRoot}/eslint.config.mjs",
+              "{workspaceRoot}/e2e/web-portal-e2e/eslint.config.mjs",
               "{workspaceRoot}/tools/eslint-rules/**/*",
               {
                 "externalDependencies": [
@@ -118,7 +757,7 @@
           },
           "e2e": {
             "options": {
-              "cwd": "web-portal-e2e",
+              "cwd": "e2e/web-portal-e2e",
               "command": "playwright test"
             },
             "metadata": {
@@ -154,8 +793,8 @@
               }
             ],
             "outputs": [
-              "{workspaceRoot}/dist/.playwright/web-portal-e2e/test-output",
-              "{workspaceRoot}/dist/.playwright/web-portal-e2e/playwright-report"
+              "{workspaceRoot}/dist/.playwright/e2e/web-portal-e2e/test-output",
+              "{workspaceRoot}/dist/.playwright/e2e/web-portal-e2e/playwright-report"
             ],
             "executor": "nx:run-commands",
             "configurations": {},
@@ -163,12 +802,12 @@
           },
           "e2e-ci--src/example.spec.ts": {
             "options": {
-              "cwd": "web-portal-e2e",
+              "cwd": "e2e/web-portal-e2e",
               "env": {
-                "PLAYWRIGHT_HTML_OUTPUT_DIR": "..\\dist\\.playwright\\web-portal-e2e\\playwright-report\\src-example-spec-ts",
-                "PLAYWRIGHT_HTML_REPORT": "..\\dist\\.playwright\\web-portal-e2e\\playwright-report\\src-example-spec-ts"
+                "PLAYWRIGHT_HTML_OUTPUT_DIR": "../../dist/.playwright/e2e/web-portal-e2e/playwright-report/src-example-spec-ts",
+                "PLAYWRIGHT_HTML_REPORT": "../../dist/.playwright/e2e/web-portal-e2e/playwright-report/src-example-spec-ts"
               },
-              "command": "playwright test src/example.spec.ts --output=..\\dist\\.playwright\\web-portal-e2e\\test-output\\src-example-spec-ts"
+              "command": "playwright test src/example.spec.ts --output=../../dist/.playwright/e2e/web-portal-e2e/test-output/src-example-spec-ts"
             },
             "metadata": {
               "technologies": [
@@ -203,8 +842,8 @@
               }
             ],
             "outputs": [
-              "{workspaceRoot}/dist/.playwright/web-portal-e2e/test-output/src-example-spec-ts",
-              "{workspaceRoot}/dist/.playwright/web-portal-e2e/playwright-report/src-example-spec-ts"
+              "{workspaceRoot}/dist/.playwright/e2e/web-portal-e2e/test-output/src-example-spec-ts",
+              "{workspaceRoot}/dist/.playwright/e2e/web-portal-e2e/playwright-report/src-example-spec-ts"
             ],
             "executor": "nx:run-commands",
             "configurations": {},
@@ -223,8 +862,8 @@
               }
             ],
             "outputs": [
-              "{workspaceRoot}/dist/.playwright/web-portal-e2e/test-output",
-              "{workspaceRoot}/dist/.playwright/web-portal-e2e/playwright-report"
+              "{workspaceRoot}/dist/.playwright/e2e/web-portal-e2e/test-output",
+              "{workspaceRoot}/dist/.playwright/e2e/web-portal-e2e/playwright-report"
             ],
             "dependsOn": [
               {
@@ -262,9 +901,9 @@
           }
         },
         "name": "web-portal-e2e",
-        "$schema": "../node_modules/nx/schemas/project-schema.json",
+        "$schema": "../../node_modules/nx/schemas/project-schema.json",
         "projectType": "application",
-        "sourceRoot": "web-portal-e2e/src",
+        "sourceRoot": "e2e/web-portal-e2e/src",
         "tags": [],
         "implicitDependencies": [
           "web-portal"
@@ -275,19 +914,19 @@
       "name": "api-users-e2e",
       "type": "e2e",
       "data": {
-        "root": "api-users-e2e",
+        "root": "e2e/api-users-e2e",
         "targets": {
           "lint": {
             "cache": true,
             "options": {
-              "cwd": "api-users-e2e",
+              "cwd": "e2e/api-users-e2e",
               "command": "eslint ."
             },
             "inputs": [
               "default",
               "^default",
               "{workspaceRoot}/eslint.config.mjs",
-              "{workspaceRoot}/api-users-e2e/eslint.config.mjs",
+              "{workspaceRoot}/e2e/api-users-e2e/eslint.config.mjs",
               "{workspaceRoot}/tools/eslint-rules/**/*",
               {
                 "externalDependencies": [
@@ -319,10 +958,10 @@
           "e2e": {
             "executor": "@nx/jest:jest",
             "outputs": [
-              "{workspaceRoot}/coverage/{e2eProjectRoot}"
+              "{workspaceRoot}/coverage/api-users-e2e"
             ],
             "options": {
-              "jestConfig": "api-users-e2e/jest.config.ts",
+              "jestConfig": "e2e/api-users-e2e/jest.config.ts",
               "passWithNoTests": true
             },
             "dependsOn": [
@@ -334,7 +973,7 @@
           }
         },
         "name": "api-users-e2e",
-        "$schema": "../node_modules/nx/schemas/project-schema.json",
+        "$schema": "../../node_modules/nx/schemas/project-schema.json",
         "projectType": "application",
         "implicitDependencies": [
           "api-users"
@@ -545,7 +1184,7 @@
             "inputs": [
               "default",
               "^production",
-              "{workspaceRoot}\\jest.preset.js",
+              "{workspaceRoot}/jest.preset.js",
               {
                 "externalDependencies": [
                   "jest"
@@ -553,7 +1192,7 @@
               }
             ],
             "outputs": [
-              "{workspaceRoot}\\coverage\\shared-types"
+              "{workspaceRoot}/coverage/shared-types"
             ],
             "executor": "nx:run-commands",
             "configurations": {},
@@ -677,7 +1316,7 @@
             "inputs": [
               "default",
               "^production",
-              "{workspaceRoot}\\jest.preset.js",
+              "{workspaceRoot}/jest.preset.js",
               {
                 "externalDependencies": [
                   "jest"
@@ -685,7 +1324,7 @@
               }
             ],
             "outputs": [
-              "{workspaceRoot}\\coverage\\shared-utils"
+              "{workspaceRoot}/coverage/shared-utils"
             ],
             "executor": "nx:run-commands",
             "configurations": {},
@@ -735,645 +1374,6 @@
         "$schema": "../node_modules/nx/schemas/project-schema.json",
         "sourceRoot": "shared-utils/src",
         "projectType": "library",
-        "implicitDependencies": []
-      }
-    },
-    "api-gateway": {
-      "name": "api-gateway",
-      "type": "app",
-      "data": {
-        "root": "api-gateway",
-        "projectType": "application",
-        "metadata": {},
-        "targets": {
-          "build": {
-            "cache": true,
-            "dependsOn": [
-              "^build"
-            ],
-            "inputs": [
-              "production",
-              "^production",
-              {
-                "externalDependencies": [
-                  "webpack-cli"
-                ]
-              }
-            ],
-            "outputs": [
-              "{workspaceRoot}/dist\\api-gateway"
-            ],
-            "metadata": {
-              "technologies": [
-                "webpack"
-              ],
-              "description": "Runs Webpack build",
-              "help": {
-                "command": "npx webpack-cli build --help",
-                "example": {
-                  "options": {
-                    "json": "stats.json"
-                  },
-                  "args": [
-                    "--profile"
-                  ]
-                }
-              }
-            },
-            "executor": "nx:run-commands",
-            "options": {
-              "cwd": "api-gateway",
-              "args": [
-                "--node-env=production"
-              ],
-              "command": "webpack-cli build"
-            },
-            "configurations": {
-              "development": {
-                "args": [
-                  "--node-env=development"
-                ]
-              }
-            },
-            "parallelism": true
-          },
-          "serve": {
-            "continuous": true,
-            "executor": "@nx/js:node",
-            "defaultConfiguration": "development",
-            "dependsOn": [
-              "build"
-            ],
-            "options": {
-              "buildTarget": "api-gateway:build",
-              "runBuildTargetDependencies": false
-            },
-            "configurations": {
-              "development": {
-                "buildTarget": "api-gateway:build:development"
-              },
-              "production": {
-                "buildTarget": "api-gateway:build:production"
-              }
-            },
-            "parallelism": true
-          },
-          "preview": {
-            "continuous": true,
-            "options": {
-              "cwd": "api-gateway",
-              "args": [
-                "--node-env=production"
-              ],
-              "command": "webpack-cli serve"
-            },
-            "metadata": {
-              "technologies": [
-                "webpack"
-              ],
-              "description": "Starts Webpack dev server in production mode",
-              "help": {
-                "command": "npx webpack-cli serve --help",
-                "example": {
-                  "options": {
-                    "args": [
-                      "--client-progress",
-                      "--history-api-fallback "
-                    ]
-                  }
-                }
-              }
-            },
-            "executor": "nx:run-commands",
-            "configurations": {},
-            "parallelism": true
-          },
-          "serve-static": {
-            "continuous": true,
-            "dependsOn": [
-              "build"
-            ],
-            "executor": "@nx/web:file-server",
-            "options": {
-              "buildTarget": "build",
-              "spa": true
-            },
-            "configurations": {},
-            "parallelism": true
-          },
-          "build-deps": {
-            "dependsOn": [
-              "^build"
-            ],
-            "configurations": {},
-            "options": {},
-            "parallelism": true,
-            "executor": "nx:noop"
-          },
-          "watch-deps": {
-            "continuous": true,
-            "dependsOn": [
-              "build-deps"
-            ],
-            "executor": "nx:run-commands",
-            "options": {
-              "command": "npx nx watch --projects api-gateway --includeDependentProjects -- npx nx build-deps api-gateway"
-            },
-            "configurations": {},
-            "parallelism": true
-          },
-          "lint": {
-            "cache": true,
-            "options": {
-              "cwd": "api-gateway",
-              "command": "eslint ."
-            },
-            "inputs": [
-              "default",
-              "^default",
-              "{workspaceRoot}/eslint.config.mjs",
-              "{workspaceRoot}/api-gateway/eslint.config.mjs",
-              "{workspaceRoot}/tools/eslint-rules/**/*",
-              {
-                "externalDependencies": [
-                  "eslint"
-                ]
-              }
-            ],
-            "outputs": [
-              "{options.outputFile}"
-            ],
-            "metadata": {
-              "technologies": [
-                "eslint"
-              ],
-              "description": "Runs ESLint on project",
-              "help": {
-                "command": "npx eslint --help",
-                "example": {
-                  "options": {
-                    "max-warnings": 0
-                  }
-                }
-              }
-            },
-            "executor": "nx:run-commands",
-            "configurations": {},
-            "parallelism": true
-          },
-          "test": {
-            "metadata": {
-              "technologies": [
-                "jest"
-              ],
-              "description": "Run Jest Tests",
-              "help": {
-                "command": "npx jest --help",
-                "example": {
-                  "options": {
-                    "coverage": true
-                  }
-                }
-              }
-            },
-            "cache": true,
-            "inputs": [
-              "default",
-              "^production",
-              "{workspaceRoot}\\jest.preset.js",
-              {
-                "externalDependencies": [
-                  "jest"
-                ]
-              }
-            ],
-            "outputs": [
-              "{workspaceRoot}\\coverage\\api-gateway"
-            ],
-            "executor": "nx:run-commands",
-            "options": {
-              "cwd": "api-gateway",
-              "env": {
-                "TS_NODE_COMPILER_OPTIONS": "{\"moduleResolution\":\"node10\",\"module\":\"commonjs\",\"customConditions\":null}"
-              },
-              "command": "jest",
-              "passWithNoTests": true
-            },
-            "configurations": {},
-            "parallelism": true
-          }
-        },
-        "name": "api-gateway",
-        "$schema": "../node_modules/nx/schemas/project-schema.json",
-        "sourceRoot": "api-gateway/src",
-        "tags": [],
-        "implicitDependencies": []
-      }
-    },
-    "web-portal": {
-      "name": "web-portal",
-      "type": "app",
-      "data": {
-        "root": "web-portal",
-        "targets": {
-          "lint": {
-            "cache": true,
-            "options": {
-              "cwd": "web-portal",
-              "command": "eslint ."
-            },
-            "inputs": [
-              "default",
-              "^default",
-              "{workspaceRoot}/eslint.config.mjs",
-              "{workspaceRoot}/web-portal/eslint.config.mjs",
-              "{workspaceRoot}/tools/eslint-rules/**/*",
-              {
-                "externalDependencies": [
-                  "eslint"
-                ]
-              }
-            ],
-            "outputs": [
-              "{options.outputFile}"
-            ],
-            "metadata": {
-              "technologies": [
-                "eslint"
-              ],
-              "description": "Runs ESLint on project",
-              "help": {
-                "command": "npx eslint --help",
-                "example": {
-                  "options": {
-                    "max-warnings": 0
-                  }
-                }
-              }
-            },
-            "executor": "nx:run-commands",
-            "configurations": {},
-            "parallelism": true
-          },
-          "test": {
-            "options": {
-              "cwd": "web-portal",
-              "env": {
-                "TS_NODE_COMPILER_OPTIONS": "{\"moduleResolution\":\"node10\",\"module\":\"commonjs\",\"customConditions\":null}"
-              },
-              "command": "jest"
-            },
-            "metadata": {
-              "technologies": [
-                "jest"
-              ],
-              "description": "Run Jest Tests",
-              "help": {
-                "command": "npx jest --help",
-                "example": {
-                  "options": {
-                    "coverage": true
-                  }
-                }
-              }
-            },
-            "cache": true,
-            "inputs": [
-              "default",
-              "^production",
-              {
-                "externalDependencies": [
-                  "jest"
-                ]
-              }
-            ],
-            "outputs": [],
-            "executor": "nx:run-commands",
-            "configurations": {},
-            "parallelism": true
-          },
-          "build": {
-            "options": {
-              "cwd": "web-portal",
-              "tty": false,
-              "command": "next build"
-            },
-            "dependsOn": [
-              "^build"
-            ],
-            "cache": true,
-            "inputs": [
-              "default",
-              "^production",
-              {
-                "externalDependencies": [
-                  "next"
-                ]
-              }
-            ],
-            "outputs": [
-              "{workspaceRoot}/web-portal/.next/!(cache)/**/*",
-              "{workspaceRoot}/web-portal/.next/!(cache)"
-            ],
-            "executor": "nx:run-commands",
-            "configurations": {},
-            "parallelism": true
-          },
-          "dev": {
-            "continuous": true,
-            "options": {
-              "cwd": "web-portal",
-              "command": "next dev"
-            },
-            "executor": "nx:run-commands",
-            "configurations": {},
-            "parallelism": true
-          },
-          "start": {
-            "continuous": true,
-            "options": {
-              "cwd": "web-portal",
-              "command": "next start"
-            },
-            "dependsOn": [
-              "build"
-            ],
-            "executor": "nx:run-commands",
-            "configurations": {},
-            "parallelism": true
-          },
-          "serve-static": {
-            "continuous": true,
-            "options": {
-              "cwd": "web-portal",
-              "command": "next start"
-            },
-            "dependsOn": [
-              "build"
-            ],
-            "executor": "nx:run-commands",
-            "configurations": {},
-            "parallelism": true
-          },
-          "build-deps": {
-            "dependsOn": [
-              "^build"
-            ],
-            "configurations": {},
-            "options": {},
-            "parallelism": true,
-            "executor": "nx:noop"
-          },
-          "watch-deps": {
-            "continuous": true,
-            "dependsOn": [
-              "build-deps"
-            ],
-            "executor": "nx:run-commands",
-            "options": {
-              "command": "npx nx watch --projects web-portal --includeDependentProjects -- npx nx build-deps web-portal"
-            },
-            "configurations": {},
-            "parallelism": true
-          }
-        },
-        "name": "web-portal",
-        "$schema": "../node_modules/nx/schemas/project-schema.json",
-        "sourceRoot": "web-portal",
-        "projectType": "application",
-        "tags": [],
-        "implicitDependencies": []
-      }
-    },
-    "api-users": {
-      "name": "api-users",
-      "type": "app",
-      "data": {
-        "root": "api-users",
-        "projectType": "application",
-        "metadata": {},
-        "targets": {
-          "build": {
-            "cache": true,
-            "dependsOn": [
-              "^build"
-            ],
-            "inputs": [
-              "production",
-              "^production",
-              {
-                "externalDependencies": [
-                  "webpack-cli"
-                ]
-              }
-            ],
-            "outputs": [
-              "{workspaceRoot}/dist\\api-users"
-            ],
-            "metadata": {
-              "technologies": [
-                "webpack"
-              ],
-              "description": "Runs Webpack build",
-              "help": {
-                "command": "npx webpack-cli build --help",
-                "example": {
-                  "options": {
-                    "json": "stats.json"
-                  },
-                  "args": [
-                    "--profile"
-                  ]
-                }
-              }
-            },
-            "executor": "nx:run-commands",
-            "options": {
-              "cwd": "api-users",
-              "args": [
-                "--node-env=production"
-              ],
-              "command": "webpack-cli build"
-            },
-            "configurations": {
-              "development": {
-                "args": [
-                  "--node-env=development"
-                ]
-              }
-            },
-            "parallelism": true
-          },
-          "serve": {
-            "continuous": true,
-            "executor": "@nx/js:node",
-            "defaultConfiguration": "development",
-            "dependsOn": [
-              "build"
-            ],
-            "options": {
-              "buildTarget": "api-users:build",
-              "runBuildTargetDependencies": false
-            },
-            "configurations": {
-              "development": {
-                "buildTarget": "api-users:build:development"
-              },
-              "production": {
-                "buildTarget": "api-users:build:production"
-              }
-            },
-            "parallelism": true
-          },
-          "preview": {
-            "continuous": true,
-            "options": {
-              "cwd": "api-users",
-              "args": [
-                "--node-env=production"
-              ],
-              "command": "webpack-cli serve"
-            },
-            "metadata": {
-              "technologies": [
-                "webpack"
-              ],
-              "description": "Starts Webpack dev server in production mode",
-              "help": {
-                "command": "npx webpack-cli serve --help",
-                "example": {
-                  "options": {
-                    "args": [
-                      "--client-progress",
-                      "--history-api-fallback "
-                    ]
-                  }
-                }
-              }
-            },
-            "executor": "nx:run-commands",
-            "configurations": {},
-            "parallelism": true
-          },
-          "serve-static": {
-            "continuous": true,
-            "dependsOn": [
-              "build"
-            ],
-            "executor": "@nx/web:file-server",
-            "options": {
-              "buildTarget": "build",
-              "spa": true
-            },
-            "configurations": {},
-            "parallelism": true
-          },
-          "build-deps": {
-            "dependsOn": [
-              "^build"
-            ],
-            "configurations": {},
-            "options": {},
-            "parallelism": true,
-            "executor": "nx:noop"
-          },
-          "watch-deps": {
-            "continuous": true,
-            "dependsOn": [
-              "build-deps"
-            ],
-            "executor": "nx:run-commands",
-            "options": {
-              "command": "npx nx watch --projects api-users --includeDependentProjects -- npx nx build-deps api-users"
-            },
-            "configurations": {},
-            "parallelism": true
-          },
-          "lint": {
-            "cache": true,
-            "options": {
-              "cwd": "api-users",
-              "command": "eslint ."
-            },
-            "inputs": [
-              "default",
-              "^default",
-              "{workspaceRoot}/eslint.config.mjs",
-              "{workspaceRoot}/api-users/eslint.config.mjs",
-              "{workspaceRoot}/tools/eslint-rules/**/*",
-              {
-                "externalDependencies": [
-                  "eslint"
-                ]
-              }
-            ],
-            "outputs": [
-              "{options.outputFile}"
-            ],
-            "metadata": {
-              "technologies": [
-                "eslint"
-              ],
-              "description": "Runs ESLint on project",
-              "help": {
-                "command": "npx eslint --help",
-                "example": {
-                  "options": {
-                    "max-warnings": 0
-                  }
-                }
-              }
-            },
-            "executor": "nx:run-commands",
-            "configurations": {},
-            "parallelism": true
-          },
-          "test": {
-            "metadata": {
-              "technologies": [
-                "jest"
-              ],
-              "description": "Run Jest Tests",
-              "help": {
-                "command": "npx jest --help",
-                "example": {
-                  "options": {
-                    "coverage": true
-                  }
-                }
-              }
-            },
-            "cache": true,
-            "inputs": [
-              "default",
-              "^production",
-              "{workspaceRoot}\\jest.preset.js",
-              {
-                "externalDependencies": [
-                  "jest"
-                ]
-              }
-            ],
-            "outputs": [
-              "{workspaceRoot}\\coverage\\api-users"
-            ],
-            "executor": "nx:run-commands",
-            "options": {
-              "cwd": "api-users",
-              "env": {
-                "TS_NODE_COMPILER_OPTIONS": "{\"moduleResolution\":\"node10\",\"module\":\"commonjs\",\"customConditions\":null}"
-              },
-              "command": "jest",
-              "passWithNoTests": true
-            },
-            "configurations": {},
-            "parallelism": true
-          }
-        },
-        "name": "api-users",
-        "$schema": "../node_modules/nx/schemas/project-schema.json",
-        "sourceRoot": "api-users/src",
-        "tags": [],
         "implicitDependencies": []
       }
     }
@@ -6851,6 +6851,15 @@
         "hash": "sha512-/Ad8+nIOV7Rl++6f1BdKxFSMgmoqEoYbHRpPcx3JEfv8VRsQe9Z4mCXeJBzxs7mbHY/XOZZuXlRNfhpVPbs6ZA=="
       }
     },
+    "npm:@types/validator": {
+      "type": "npm",
+      "name": "npm:@types/validator",
+      "data": {
+        "version": "13.15.2",
+        "packageName": "@types/validator",
+        "hash": "sha512-y7pa/oEJJ4iGYBxOpfAKn5b9+xuihvzDVnC/OSvlVnGxVg0pOqmjiMafiJ1KVNQEaPZf9HsEp5icEwGg8uIe5Q=="
+      }
+    },
     "npm:@types/ws": {
       "type": "npm",
       "name": "npm:@types/ws",
@@ -8496,6 +8505,24 @@
         "version": "2.1.0",
         "packageName": "cjs-module-lexer",
         "hash": "sha512-UX0OwmYRYQQetfrLEZeewIFFI+wSTofC+pMBLNuH3RUuu/xzG1oz84UCEDOSoQlN3fZ4+AzmV50ZYvGqkMh9yA=="
+      }
+    },
+    "npm:class-transformer": {
+      "type": "npm",
+      "name": "npm:class-transformer",
+      "data": {
+        "version": "0.5.1",
+        "packageName": "class-transformer",
+        "hash": "sha512-SQa1Ws6hUbfC98vKGxZH3KFY0Y1lm5Zm0SY8XX9zbK7FJCyVEac3ATW0RIpwzW+oOfmHE5PMPufDG9hCfoEOMw=="
+      }
+    },
+    "npm:class-validator": {
+      "type": "npm",
+      "name": "npm:class-validator",
+      "data": {
+        "version": "0.14.2",
+        "packageName": "class-validator",
+        "hash": "sha512-3kMVRF2io8N8pY1IFIXlho9r8IPUUIfHe2hYVtiebvAzU2XeQFXTv+XI4WX+TnXmtwXMDcjngcpkiPM0O9PvLw=="
       }
     },
     "npm:cli-cursor": {
@@ -12449,6 +12476,15 @@
         "hash": "sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ=="
       }
     },
+    "npm:libphonenumber-js": {
+      "type": "npm",
+      "name": "npm:libphonenumber-js",
+      "data": {
+        "version": "1.12.10",
+        "packageName": "libphonenumber-js",
+        "hash": "sha512-E91vHJD61jekHHR/RF/E83T/CMoaLXT7cwYA75T4gim4FZjnM6hbJjVIGg7chqlSqRsSvQ3izGmOjHy1SQzcGQ=="
+      }
+    },
     "npm:license-webpack-plugin": {
       "type": "npm",
       "name": "npm:license-webpack-plugin",
@@ -15590,6 +15626,15 @@
         "hash": "sha512-OljLrQ9SQdOUqTaQxqL5dEfZWrXExyyWsozYlAWFawPVNuD83igl7uJD2RTkNMbniIYgt8l81eCJGIdQF7avLQ=="
       }
     },
+    "npm:validator": {
+      "type": "npm",
+      "name": "npm:validator",
+      "data": {
+        "version": "13.15.15",
+        "packageName": "validator",
+        "hash": "sha512-BgWVbCI72aIQy937xbawcs+hrVaN/CZ2UwutgaJ36hGqRrLNM+f5LUT/YPRbo8IV/ASeFzXszezV+y2+rq3l8A=="
+      }
+    },
     "npm:varint": {
       "type": "npm",
       "name": "npm:varint",
@@ -15943,6 +15988,38 @@
     }
   },
   "dependencies": {
+    "api-gateway": [
+      {
+        "source": "api-gateway",
+        "target": "npm:@nestjs/testing",
+        "type": "static"
+      },
+      {
+        "source": "api-gateway",
+        "target": "npm:@nestjs/common",
+        "type": "static"
+      },
+      {
+        "source": "api-gateway",
+        "target": "shared-utils",
+        "type": "static"
+      },
+      {
+        "source": "api-gateway",
+        "target": "shared-types",
+        "type": "static"
+      },
+      {
+        "source": "api-gateway",
+        "target": "npm:@nestjs/core",
+        "type": "static"
+      },
+      {
+        "source": "api-gateway",
+        "target": "npm:@nx/webpack",
+        "type": "static"
+      }
+    ],
     "api-gateway-e2e": [
       {
         "source": "api-gateway-e2e",
@@ -15957,6 +16034,80 @@
       {
         "source": "api-gateway-e2e",
         "target": "npm:@nx/node",
+        "type": "static"
+      }
+    ],
+    "web-portal": [
+      {
+        "source": "web-portal",
+        "target": "npm:@eslint/eslintrc",
+        "type": "static"
+      },
+      {
+        "source": "web-portal",
+        "target": "npm:@eslint/js",
+        "type": "static"
+      },
+      {
+        "source": "web-portal",
+        "target": "npm:@eslint/compat",
+        "type": "static"
+      },
+      {
+        "source": "web-portal",
+        "target": "npm:@nx/eslint-plugin",
+        "type": "static"
+      },
+      {
+        "source": "web-portal",
+        "target": "npm:jest",
+        "type": "static"
+      },
+      {
+        "source": "web-portal",
+        "target": "npm:next",
+        "type": "static"
+      },
+      {
+        "source": "web-portal",
+        "target": "npm:@nx/next",
+        "type": "static"
+      },
+      {
+        "source": "web-portal",
+        "target": "npm:react",
+        "type": "static"
+      },
+      {
+        "source": "web-portal",
+        "target": "npm:@testing-library/react",
+        "type": "static"
+      }
+    ],
+    "api-users": [
+      {
+        "source": "api-users",
+        "target": "npm:@nestjs/testing",
+        "type": "static"
+      },
+      {
+        "source": "api-users",
+        "target": "npm:@nestjs/common",
+        "type": "static"
+      },
+      {
+        "source": "api-users",
+        "target": "shared-utils",
+        "type": "static"
+      },
+      {
+        "source": "api-users",
+        "target": "npm:@nestjs/core",
+        "type": "static"
+      },
+      {
+        "source": "api-users",
+        "target": "npm:@nx/webpack",
         "type": "static"
       }
     ],
@@ -16023,96 +16174,10 @@
         "source": "shared-utils",
         "target": "npm:jsonc-eslint-parser",
         "type": "dynamic"
-      }
-    ],
-    "api-gateway": [
-      {
-        "source": "api-gateway",
-        "target": "npm:@nestjs/testing",
-        "type": "static"
       },
       {
-        "source": "api-gateway",
+        "source": "shared-utils",
         "target": "npm:@nestjs/common",
-        "type": "static"
-      },
-      {
-        "source": "api-gateway",
-        "target": "npm:@nestjs/core",
-        "type": "static"
-      },
-      {
-        "source": "api-gateway",
-        "target": "npm:@nx/webpack",
-        "type": "static"
-      }
-    ],
-    "web-portal": [
-      {
-        "source": "web-portal",
-        "target": "npm:@eslint/eslintrc",
-        "type": "static"
-      },
-      {
-        "source": "web-portal",
-        "target": "npm:@eslint/js",
-        "type": "static"
-      },
-      {
-        "source": "web-portal",
-        "target": "npm:@eslint/compat",
-        "type": "static"
-      },
-      {
-        "source": "web-portal",
-        "target": "npm:@nx/eslint-plugin",
-        "type": "static"
-      },
-      {
-        "source": "web-portal",
-        "target": "npm:jest",
-        "type": "static"
-      },
-      {
-        "source": "web-portal",
-        "target": "npm:next",
-        "type": "static"
-      },
-      {
-        "source": "web-portal",
-        "target": "npm:@nx/next",
-        "type": "static"
-      },
-      {
-        "source": "web-portal",
-        "target": "npm:react",
-        "type": "static"
-      },
-      {
-        "source": "web-portal",
-        "target": "npm:@testing-library/react",
-        "type": "static"
-      }
-    ],
-    "api-users": [
-      {
-        "source": "api-users",
-        "target": "npm:@nestjs/testing",
-        "type": "static"
-      },
-      {
-        "source": "api-users",
-        "target": "npm:@nestjs/common",
-        "type": "static"
-      },
-      {
-        "source": "api-users",
-        "target": "npm:@nestjs/core",
-        "type": "static"
-      },
-      {
-        "source": "api-users",
-        "target": "npm:@nx/webpack",
         "type": "static"
       }
     ],
@@ -20982,6 +21047,16 @@
     "npm:@nestjs/common": [
       {
         "source": "npm:@nestjs/common",
+        "target": "npm:class-transformer",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nestjs/common",
+        "target": "npm:class-validator",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nestjs/common",
         "target": "npm:reflect-metadata",
         "type": "static"
       },
@@ -25698,6 +25773,23 @@
       {
         "source": "npm:chokidar",
         "target": "npm:readdirp",
+        "type": "static"
+      }
+    ],
+    "npm:class-validator": [
+      {
+        "source": "npm:class-validator",
+        "target": "npm:@types/validator",
+        "type": "static"
+      },
+      {
+        "source": "npm:class-validator",
+        "target": "npm:libphonenumber-js",
+        "type": "static"
+      },
+      {
+        "source": "npm:class-validator",
+        "target": "npm:validator",
         "type": "static"
       }
     ],
@@ -36625,5 +36717,5 @@
   },
   "version": "6.0",
   "errors": [],
-  "computedAt": 1754924714267
+  "computedAt": 1755070841681
 }

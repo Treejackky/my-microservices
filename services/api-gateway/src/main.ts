@@ -9,6 +9,19 @@ import { AppModule } from './app/app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  
+  // เพิ่มการตั้งค่า CORS
+  app.enableCors({
+    origin: [
+      'http://localhost:4200', // สำหรับ development
+      'http://localhost:3000', // สำหรับ production
+      /^https?:\/\/.*\.your-domain\.com$/ // สำหรับ production domain
+    ],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true
+  });
+  
   const globalPrefix = 'api';
   app.setGlobalPrefix(globalPrefix);
   const port = process.env.PORT || 3000;
