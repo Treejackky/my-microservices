@@ -4,7 +4,7 @@ import { AppService } from './app.service';
 describe('AppService', () => {
   let service: AppService;
 
-  beforeAll(async () => {
+  beforeEach(async () => {
     const app = await Test.createTestingModule({
       providers: [AppService],
     }).compile();
@@ -18,12 +18,17 @@ describe('AppService', () => {
     });
   });
 
-  describe('getUsers', () => {
-    it('should return an array of users', () => {
-      expect(service.getUsers()).toEqual([
-        { id: 1, name: 'Alice' },
-        { id: 2, name: 'Bob' },
-      ]);
+  describe('users CRUD', () => {
+    it('should create, retrieve, update and delete a user', () => {
+      expect(service.getUsers()).toHaveLength(2);
+      const created = service.createUser('Charlie');
+      expect(created).toEqual({ id: 3, name: 'Charlie' });
+      expect(service.getUser(3)).toEqual({ id: 3, name: 'Charlie' });
+      const updated = service.updateUser(3, 'Charles');
+      expect(updated).toEqual({ id: 3, name: 'Charles' });
+      const removed = service.deleteUser(3);
+      expect(removed).toEqual({ id: 3, name: 'Charles' });
+      expect(service.getUser(3)).toBeUndefined();
     });
   });
 });
