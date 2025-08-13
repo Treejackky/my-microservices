@@ -17,4 +17,13 @@ describe('AppService', () => {
       expect(service.getData()).toEqual({ message: 'Hello API' });
     });
   });
+
+  describe('getUsers', () => {
+    it('should return an array of users', () => {
+      expect(service.getUsers()).toEqual([
+        { id: 1, name: 'Alice' },
+        { id: 2, name: 'Bob' },
+      ]);
+    });
+  });
 });
