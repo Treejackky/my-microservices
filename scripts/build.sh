@@ -13,7 +13,7 @@ NC='\033[0m' # No Color
 REGISTRY=${REGISTRY:-"localhost:5000"}
 IMAGE_PREFIX=${IMAGE_PREFIX:-"my-microservices"}
 TAG=${TAG:-"latest"}
-SERVICES=("api-gateway" "api-users" "web-portal")
+SERVICES=("api-gateway" "api-users" "api-products" "web-portal")
 
 echo -e "${GREEN}🚀 Starting build process for My Microservices${NC}"
 
