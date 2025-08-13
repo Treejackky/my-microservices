@@ -4,20 +4,26 @@ import { ProductsService } from './products.service';
 
 describe('ProductsController', () => {
   let controller: ProductsController;
+  let service: ProductsService;
 
-  beforeAll(async () => {
+  beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [ProductsController],
       providers: [ProductsService],
-    }).compile();
+    })
+      .overrideProvider(ProductsService)
+      .useValue({
+        getProducts: jest.fn().mockResolvedValue([]),
+      })
+      .compile();
 
     controller = module.get<ProductsController>(ProductsController);
+    service = module.get<ProductsService>(ProductsService);
   });
 
-  it('should return a list of products', () => {
-    const products = controller.findAll();
-    expect(products.length).toBeGreaterThan(0);
-    expect(products[0]).toHaveProperty('id');
-    expect(products[0]).toHaveProperty('name');
+  it('should return a list of products', async () => {
+    const products = await controller.findAll();
+    expect(products).toEqual([]);
+    expect(service.getProducts).toHaveBeenCalled();
   });
 });

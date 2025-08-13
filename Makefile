@@ -23,10 +23,11 @@ install: ## Install dependencies
 	npm ci
 
 build: ## Build all applications
-	@echo "$(GREEN)Building applications...$(NC)"
-	npx nx build api-gateway
-	npx nx build api-users
-	npx nx build web-portal
+        @echo "$(GREEN)Building applications...$(NC)"
+        npx nx build api-gateway
+        npx nx build api-users
+        npx nx build api-products
+        npx nx build web-portal
 
 test: ## Run tests
 	@echo "$(GREEN)Running tests...$(NC)"
