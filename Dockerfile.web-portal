@@ -7,8 +7,8 @@ RUN npx nx build web-portal
 FROM node:20-alpine
 WORKDIR /srv
 ENV NODE_ENV=production
-COPY --from=build /app/web-portal/.next ./dist/.next
-COPY --from=build /app/web-portal/public ./dist/public
+ COPY --from=build /app/services/web-portal/.next ./dist/.next
+ COPY --from=build /app/services/web-portal/public ./dist/public
 COPY package.json package-lock.json ./
 RUN npm ci --omit=dev
 WORKDIR /srv/dist
